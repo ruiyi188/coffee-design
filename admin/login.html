@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>登录 | 咖啡后台管理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#271310",
+        "secondary": "#655d5a",
+        "surface": "#fafaf5",
+        "surface-container": "#eeeee9",
+        "surface-container-low": "#f4f4ef",
+        "surface-container-high": "#e8e8e3",
+        "on-surface": "#1a1c19",
+        "on-primary": "#ffffff",
+        "outline": "#827472",
+        "error": "#ba1a1a",
+        "tertiary-container": "#18331b",
+        "on-tertiary-fixed": "#05210a"
+      }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400; }
+body { font-family: 'Noto Serif SC', serif; }
+.login-container {
+  box-shadow: 0 12px 32px rgba(39, 19, 16, 0.08);
+}
+.input-field {
+  @apply w-full px-4 py-3 rounded-lg border border-outline/20 focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors text-on-surface;
+}
+.btn-primary {
+  @apply w-full py-3 rounded-lg bg-primary text-on-primary font-semibold hover:opacity-90 active:scale-95 transition-all duration-200;
+}
+.btn-secondary {
+  @apply w-full py-3 rounded-lg border border-outline/30 text-primary font-semibold hover:bg-surface-container-low active:scale-95 transition-all duration-200;
+}
+</style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex items-center justify-center px-4">
+<!-- Main Login Container -->
+<div class="w-full max-w-md">
+  <!-- Logo & Title -->
+  <div class="text-center mb-12">
+    <div class="flex items-center justify-center mb-6">
+      <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
+        <span class="material-symbols-outlined text-on-primary" style="font-size: 32px;">coffee</span>
+      </div>
+    </div>
+    <h1 class="font-noto-serif text-3xl font-bold text-primary mb-2">匠心咖啡</h1>
+    <p class="text-secondary text-sm">后台管理系统</p>
+  </div>
+
+  <!-- Login Form -->
+  <form id="loginForm" class="space-y-6 mb-8">
+    <!-- Email Input -->
+    <div>
+      <label for="email" class="block text-sm font-semibold text-primary mb-2">邮箱地址</label>
+      <input
+        id="email"
+        type="email"
+        placeholder="admin@coffee.com"
+        value="admin@coffee.com"
+        class="input-field"
+        required
+        autocomplete="email"
+      />
+    </div>
+
+    <!-- Password Input -->
+    <div>
+      <label for="password" class="block text-sm font-semibold text-primary mb-2">密码</label>
+      <div class="relative">
+        <input
+          id="password"
+          type="password"
+          placeholder="••••••••"
+          value="••••••••"
+          class="input-field pr-12"
+          required
+          autocomplete="current-password"
+        />
+        <button
+          type="button"
+          onclick="togglePasswordVisibility()"
+          class="absolute right-4 top-1/2 -translate-y-1/2 text-secondary hover:text-primary transition-colors"
+        >
+          <span class="material-symbols-outlined" id="toggleIcon">visibility</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Remember & Forgot -->
+    <div class="flex items-center justify-between">
+      <label class="flex items-center gap-2 cursor-pointer">
+        <input type="checkbox" id="remember" class="w-4 h-4 rounded cursor-pointer" />
+        <span class="text-sm text-secondary">记住我</span>
+      </label>
+      <a href="#" class="text-sm text-primary hover:opacity-80 transition-opacity font-medium">忘记密码？</a>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn-primary mt-8">
+      进入后台
+    </button>
+  </form>
+
+  <!-- Demo Info -->
+  <div class="bg-surface-container-low p-4 rounded-lg mb-6 text-center text-xs text-secondary">
+    <p class="mb-1">演示账户</p>
+    <p class="font-mono">admin@coffee.com</p>
+  </div>
+
+  <!-- Footer Links -->
+  <div class="text-center space-y-3 border-t border-outline/10 pt-6">
+    <p class="text-sm text-secondary">
+      需要帮助？
+      <a href="#" class="text-primary font-semibold hover:opacity-80 transition-opacity">联系管理员</a>
+    </p>
+    <div class="flex items-center justify-center gap-4 text-xs text-secondary">
+      <a href="#" class="hover:text-primary transition-colors">使用条款</a>
+      <span>·</span>
+      <a href="#" class="hover:text-primary transition-colors">隐私政策</a>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:max-w-sm p-4 rounded-lg bg-primary text-on-primary hidden" role="alert">
+  <div class="flex items-center gap-3">
+    <span class="material-symbols-outlined">check_circle</span>
+    <span id="toastMessage">登录成功</span>
+  </div>
+</div>
+
+<script>
+// Password visibility toggle
+function togglePasswordVisibility() {
+  const passwordInput = document.getElementById('password');
+  const toggleIcon = document.getElementById('toggleIcon');
+  const isPassword = passwordInput.type === 'password';
+  
+  passwordInput.type = isPassword ? 'text' : 'password';
+  toggleIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+}
+
+// Form submission
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const remember = document.getElementById('remember').checked;
+  
+  // Simple validation
+  if (email && password) {
+    // Show success message
+    showToast('登录成功，正在跳转...');
+    
+    // Simulate login delay
+    setTimeout(() => {
+      // Store credentials in localStorage if "Remember me" is checked
+      if (remember) {
+        localStorage.setItem('savedEmail', email);
+      } else {
+        localStorage.removeItem('savedEmail');
+      }
+      
+      // Redirect to dashboard
+      window.location.href = './dashboard.html';
+    }, 1500);
+  } else {
+    showToast('请填写所有字段', 'error');
+  }
+});
+
+// Show toast notification
+function showToast(message, type = 'success') {
+  const toast = document.getElementById('toast');
+  const toastMessage = document.getElementById('toastMessage');
+  
+  toastMessage.textContent = message;
+  toast.classList.remove('hidden');
+  
+  if (type === 'error') {
+    toast.classList.add('bg-error');
+    toast.classList.remove('bg-primary');
+  } else {
+    toast.classList.add('bg-primary');
+    toast.classList.remove('bg-error');
+  }
+  
+  setTimeout(() => {
+    toast.classList.add('hidden');
+  }, 3000);
+}
+
+// Load saved email if exists
+window.addEventListener('DOMContentLoaded', function() {
+  const savedEmail = localStorage.getItem('savedEmail');
+  if (savedEmail) {
+    document.getElementById('email').value = savedEmail;
+    document.getElementById('remember').checked = true;
+  }
+});
+</script>
+</body>
+</html>

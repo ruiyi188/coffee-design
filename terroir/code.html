@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>匠心咖啡 — 咖啡风土</title>
+<meta name="description" content="探索咖啡豆带，每一杯咖啡的灵魂都始于土壤。" />
+<meta name="theme-color" content="#3E2723" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/style.css" rel="stylesheet"/>
+<script src="../assets/main.js" defer></script>
+<script src="../assets/nav.js" defer></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#d3c3c0",
+              "on-surface": "#1a1c19",
+              "on-surface-variant": "#504442",
+              "on-error": "#ffffff",
+              "surface-variant": "#e3e3de",
+              "on-secondary-fixed": "#201a18",
+              "error": "#ba1a1a",
+              "surface-container-lowest": "#ffffff",
+              "on-background": "#1a1c19",
+              "tertiary-fixed": "#caebc7",
+              "surface-container": "#eeeee9",
+              "secondary-fixed": "#ece0dc",
+              "primary": "#3E2723",
+              "on-secondary-container": "#6b6360",
+              "tertiary": "#031e08",
+              "secondary-fixed-dim": "#cfc4c0",
+              "on-primary-container": "#ae8d87",
+              "inverse-on-surface": "#f1f1ec",
+              "on-primary-fixed-variant": "#5b403c",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#2b1613",
+              "surface-bright": "#fafaf5",
+              "surface-container-high": "#e8e8e3",
+              "surface-dim": "#dadad5",
+              "tertiary-fixed-dim": "#afcfac",
+              "inverse-surface": "#2f312e",
+              "tertiary-container": "#18331b",
+              "secondary-container": "#ece0dc",
+              "on-secondary": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#e3beb8",
+              "outline": "#827472",
+              "on-tertiary-container": "#7e9d7c",
+              "on-tertiary": "#ffffff",
+              "secondary": "#655d5a",
+              "surface-container-highest": "#e3e3de",
+              "background": "#fafaf5",
+              "on-tertiary-fixed-variant": "#314d33",
+              "primary-container": "#3e2723",
+              "surface-tint": "#745853",
+              "on-tertiary-fixed": "#05210a",
+              "surface-container-low": "#f4f4ef",
+              "surface": "#fafaf5",
+              "primary-fixed-dim": "#e3beb8",
+              "on-secondary-fixed-variant": "#4c4542",
+              "on-error-container": "#93000a",
+              "primary-fixed": "#ffdad4"
+            },
+            fontFamily: {
+              "noto-serif": ["Noto Serif SC", "serif"],
+              "headline": ["Noto Serif SC", "serif"],
+              "body": ["Noto Serif SC", "serif"],
+              "label": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .serif-italic { font-family: 'Noto Serif SC'; font-style: italic; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fafaf5]/80 dark:bg-[#3E2723]/80 backdrop-blur-md shadow-[0_12px_32px_rgba(62,39,35,0.04)] flex items-center justify-between px-6 h-20">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#3E2723] dark:text-[#fafaf5] cursor-pointer active:scale-95 duration-200">menu</span>
+</div>
+<h1 class="font-headline font-bold text-[#3E2723] dark:text-[#ece0dc] text-2xl tracking-tight">匠心咖啡</h1>
+<a href="../admin/login.html" class="flex items-center gap-4 cursor-pointer active:scale-95 duration-200 hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[#3E2723] dark:text-[#fafaf5]">search</span>
+</a>
+</nav>
+<main class="pt-20 pb-32">
+<!-- Hero Section: Editorial Headline -->
+<header class="px-6 pt-12 pb-8 max-w-7xl mx-auto text-center">
+<div class="flex flex-col items-center justify-center gap-8">
+<div class="max-w-2xl">
+<h1 class="font-noto-serif text-5xl md:text-6xl font-black text-primary leading-tight tracking-tight mb-4">咖啡风土</h1>
+<p class="font-body text-lg text-secondary max-w-xl leading-relaxed">每一杯咖啡的灵魂都始于土壤。探索"咖啡豆带"，这是一个狭窄的赤道地带，海拔、降雨和矿物质在这里汇聚，谱写出流动的诗篇。</p>
+</div>
+</header>
+<!-- Interactive Map Section -->
+<section class="px-6 mb-16 max-w-7xl mx-auto">
+<div class="relative w-full aspect-[21/9] bg-surface-container-low rounded-[2rem] overflow-hidden group">
+<!-- Map Background with World Map -->
+<div class="absolute inset-0 w-full h-full bg-cover bg-center" style="background-image: url('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/0/0/0'); background-color: #87CEEB; background-position: center; background-size: cover;"></div>
+<!-- Coffee Belt Overlay -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="absolute inset-y-[32%] inset-x-0 bg-yellow-400/15 border-y-2 border-dashed border-yellow-600/50"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<p class="text-2xl font-bold text-yellow-700/70 drop-shadow-lg">咖啡黄金生长带</p>
+<p class="text-sm text-yellow-700/60 drop-shadow">北纬 23.5° 至 南纬 23.5°</p>
+</div>
+</div>
+<!-- The Bean Belt Overlay -->
+<div class="absolute inset-y-[30%] inset-x-0 bg-primary/5 border-y border-dashed border-primary/20 flex items-center justify-center">
+<span class="font-label text-[10px] uppercase tracking-widest text-primary/40 absolute top-2 left-10">北回归线</span>
+<span class="font-label text-[10px] uppercase tracking-widest text-primary/40 absolute bottom-2 left-10">南回归线</span>
+<div class="hidden md:block absolute right-10 text-right opacity-40">
+<p class="font-headline italic text-lg text-primary">咖啡黄金生长带</p>
+<p class="font-label text-[10px] uppercase tracking-widest">北纬 23.5° 至 南纬 23.5°</p>
+</div>
+</div>
+<!-- Interactive Region Markers -->
+<!-- Ethiopia -->
+<a href="../regions/ethiopia.html" class="absolute top-[45%] left-[55%] -translate-x-1/2 -translate-y-1/2 group/marker">
+<div class="relative flex items-center justify-center w-4 h-4 bg-primary rounded-full cursor-pointer hover:scale-125 transition-transform shadow-lg">
+<div class="absolute inset-0 bg-primary animate-ping opacity-20 rounded-full"></div>
+</div>
+<div class="absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-surface-container-lowest p-3 rounded-xl shadow-xl w-48 opacity-0 group-hover/marker:opacity-100 transition-all duration-300 z-10 pointer-events-none">
+<p class="font-headline font-bold text-primary">埃塞俄比亚</p>
+<p class="text-xs text-secondary mt-1">花香、茉莉、佛手柑</p>
+<p class="text-[10px] text-outline mt-2 opacity-70">点击查看详情</p>
+</div>
+</a>
+<!-- Colombia -->
+<a href="../regions/colombia.html" class="absolute top-[50%] left-[28%] -translate-x-1/2 -translate-y-1/2 group/marker">
+<div class="relative flex items-center justify-center w-4 h-4 bg-primary rounded-full cursor-pointer hover:scale-125 transition-transform shadow-lg">
+<div class="absolute inset-0 bg-primary animate-ping opacity-20 rounded-full"></div>
+</div>
+<div class="absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-surface-container-lowest p-3 rounded-xl shadow-xl w-48 opacity-0 group-hover/marker:opacity-100 transition-all duration-300 z-10 pointer-events-none">
+<p class="font-headline font-bold text-primary">哥伦比亚</p>
+<p class="text-xs text-secondary mt-1">坚果、焦糖、红苹果</p>
+<p class="text-[10px] text-outline mt-2 opacity-70">点击查看详情</p>
+</div>
+</a>
+<!-- Indonesia -->
+<a href="../regions/indonesia.html" class="absolute top-[58%] left-[82%] -translate-x-1/2 -translate-y-1/2 group/marker">
+<div class="relative flex items-center justify-center w-4 h-4 bg-primary rounded-full cursor-pointer hover:scale-125 transition-transform shadow-lg">
+<div class="absolute inset-0 bg-primary animate-ping opacity-20 rounded-full"></div>
+</div>
+<div class="absolute top-full mt-3 left-1/2 -translate-x-1/2 bg-surface-container-lowest p-3 rounded-xl shadow-xl w-48 opacity-0 group-hover/marker:opacity-100 transition-all duration-300 z-10 pointer-events-none">
+<p class="font-headline font-bold text-primary">印度尼西亚</p>
+<p class="text-xs text-secondary mt-1">泥土气息、香料、黑巧克力</p>
+<p class="text-[10px] text-outline mt-2 opacity-70">点击查看详情</p>
+</div>
+</a>
+</div>
+</section>
+<!-- Bento Grid: Major Origins -->
+<section class="px-6 max-w-7xl mx-auto mb-20">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Ethiopia -->
+<a href="../regions/ethiopia.html" class="md:col-span-8 bg-secondary-container rounded-[2rem] overflow-hidden flex flex-col md:flex-row items-stretch hover:shadow-lg hover:opacity-95 transition-all duration-300 cursor-pointer group">
+<div class="md:w-1/2 h-64 md:h-auto overflow-hidden relative">
+<img alt="埃塞俄比亚日晒咖啡豆" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1200"/>
+<div class="absolute top-6 left-6">
+<span class="bg-tertiary-container text-on-tertiary-fixed px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">发源地</span>
+</div>
+</div>
+<div class="md:w-1/2 p-10 flex flex-col justify-center">
+<h3 class="font-headline text-3xl md:text-4xl font-bold text-primary tracking-tight mb-4">埃塞俄比亚</h3>
+<p class="text-secondary-fixed-variant leading-relaxed mb-6">高海拔豆种，以其茶感体脂和明亮的酸度著称。体验耶加雪菲和西达摩的优雅风味。</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-4 py-1 bg-white/50 rounded-full text-xs font-medium text-primary">花香</span>
+<span class="px-4 py-1 bg-white/50 rounded-full text-xs font-medium text-primary">柑橘</span>
+<span class="px-4 py-1 bg-white/50 rounded-full text-xs font-medium text-primary">明亮酸度</span>
+</div>
+<div class="w-fit flex items-center gap-2 group/btn">
+<span class="font-label font-bold text-primary uppercase text-xs tracking-widest border-b-2 border-primary/20 group-hover/btn:border-primary transition-all">点击查看详情</span>
+<span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</a>
+<!-- Small Origin Cards -->
+<div class="md:col-span-4 flex flex-col gap-6">
+<a href="../regions/colombia.html" class="bg-surface-container-low rounded-[2rem] p-8 flex-1 group hover:bg-secondary-container transition-colors duration-500 cursor-pointer hover:shadow-lg hover:scale-105">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">spa</span>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity group-hover:translate-x-1">north_east</span>
+</div>
+<h4 class="font-headline text-2xl md:text-3xl font-bold text-primary tracking-tight mb-2">哥伦比亚</h4>
+<p class="text-secondary text-sm leading-relaxed mb-4">极致的平衡感。中等浓郁度，带有巧克力般的甜感和安第斯山脉特有的坚果芬芳。</p>
+<div class="flex gap-2">
+<div class="h-1 w-full bg-outline-variant rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[75%]"></div>
+</div>
+<span class="text-[10px] font-bold text-primary uppercase">平衡</span>
+</div>
+</a>
+<a href="../regions/indonesia.html" class="bg-surface-container-low rounded-[2rem] p-8 flex-1 group hover:bg-tertiary-container hover:text-white transition-colors duration-500 cursor-pointer hover:shadow-lg hover:scale-105">
+<div class="flex justify-between items-start mb-6">
+<div class="w-12 h-12 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-surface group-hover:text-white transition-colors" style="font-variation-settings: 'FILL' 1;">forest</span>
+</div>
+<span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-opacity group-hover:translate-x-1">north_east</span>
+</div>
+<h4 class="font-headline text-2xl md:text-3xl font-bold group-hover:text-white tracking-tight mb-2">印度尼西亚</h4>
+<p class="text-secondary group-hover:text-white/70 text-sm leading-relaxed mb-4">醇厚而深邃。湿刨法带来的独特深沉泥土气息和辛香余韵。</p>
+<div class="flex gap-2">
+<div class="h-1 w-full bg-white/20 rounded-full overflow-hidden">
+<div class="bg-white h-full w-[90%]"></div>
+</div>
+<span class="text-[10px] font-bold group-hover:text-white uppercase">重厚体脂</span>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Terroir Factors -->
+<section class="bg-primary text-white py-24 px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+<div class="lg:w-1/2 relative">
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-tertiary-container rounded-full blur-3xl opacity-30"></div>
+<img alt="火山咖啡培養特写" class="rounded-[2rem] w-full aspect-[4/5] object-cover relative z-10 shadow-2xl" src="https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg?auto=compress&cs=tinysrgb&w=800"/>
+<div class="absolute -bottom-10 -right-10 bg-surface-container-lowest p-8 rounded-[2rem] shadow-2xl hidden md:block z-20">
+<p class="font-headline text-primary text-4xl">800-2200米</p>
+<p class="font-label text-secondary text-[10px] uppercase tracking-widest mt-1">理想种植海拔</p>
+</div>
+</div>
+<div class="lg:w-1/2">
+<span class="font-label text-xs uppercase tracking-[0.3em] text-on-primary-container mb-6 block">风味变量</span>
+<h3 class="font-headline text-4xl md:text-5xl font-bold tracking-tight mb-8 leading-tight">何谓风土</h3>
+<div class="space-y-10">
+<div class="flex gap-6">
+<span class="font-headline text-3xl opacity-30">01</span>
+<div>
+<h5 class="font-headline text-xl md:text-2xl font-bold tracking-tight mb-2">海拔与温度</h5>
+<p class="text-white/60 leading-relaxed">高海拔导致咖啡果实成熟速度变慢，从而积累更复杂的糖分和酸度。</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="font-headline text-3xl opacity-30">02</span>
+<div>
+<h5 class="font-headline text-xl md:text-2xl font-bold tracking-tight mb-2">土壤成分</h5>
+<p class="text-white/60 leading-relaxed">火山灰、粘质壤土和富含营养的有机质决定了根部对特定矿物质的吸收。</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="font-headline text-3xl opacity-30">03</span>
+<div>
+<h5 class="font-headline text-xl md:text-2xl font-bold tracking-tight mb-2">处理工艺传统</h5>
+<p class="text-white/60 leading-relaxed">无论是水洗、日晒还是蜜处理，当地的加工传统也是风土不可分割的一部分。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Horizontal Scroll: Quick Discover -->
+<section class="py-20">
+<div class="px-6 max-w-7xl mx-auto mb-10 text-center">
+<div>
+<h3 class="font-headline text-3xl md:text-4xl text-primary font-bold tracking-tight">其他微气候产区</h3>
+<p class="text-secondary mt-2">拥有非凡风味表现的小众地区</p>
+</div>
+<div class="flex gap-2 justify-center mt-6">
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-secondary-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-6 overflow-x-auto px-6 pb-8 hide-scrollbar snap-x">
+<!-- Kenya -->
+<a href="../regions/kenya.html" class="min-w-[320px] snap-start bg-white rounded-3xl p-6 shadow-sm group border border-surface-container hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer">
+<img alt="肯尼亚山咖啡种植园" class="w-full h-48 object-cover rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-500" src="https://images.pexels.com/photos/2398220/pexels-photo-2398220.jpeg?auto=compress&cs=tinysrgb&w=500"/>
+<div class="flex justify-between items-center mb-2">
+<h5 class="font-headline text-xl text-primary">肯尼亚</h5>
+<span class="text-[10px] font-bold text-tertiary-container bg-tertiary-fixed px-2 py-0.5 rounded">高酸度</span>
+</div>
+<p class="text-secondary text-sm">以浓郁的黑醋栗气息和如红酒般持久的酸度而闻名。</p>
+</a>
+<!-- Brazil -->
+<a href="../regions/brazil.html" class="min-w-[320px] snap-start bg-white rounded-3xl p-6 shadow-sm group border border-surface-container hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer">
+<img alt="巴西大规模咖啡采收" class="w-full h-48 object-cover rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-500" src="https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg?auto=compress&cs=tinysrgb&w=500"/>
+<div class="flex justify-between items-center mb-2">
+<h5 class="font-headline text-xl text-primary">巴西</h5>
+<span class="text-[10px] font-bold text-primary-container bg-primary-fixed px-2 py-0.5 rounded">低酸度</span>
+</div>
+<p class="text-secondary text-sm">作为产量巨头，提供低酸、高醇厚度及坚果巧克力基调。</p>
+</a>
+<!-- Panama -->
+<a href="../regions/panama.html" class="min-w-[320px] snap-start bg-white rounded-3xl p-6 shadow-sm group border border-surface-container hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer">
+<img alt="稀有的瑰夏咖啡果" class="w-full h-48 object-cover rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-500" src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=500"/>
+<div class="flex justify-between items-center mb-2">
+<h5 class="font-headline text-xl text-primary">巴拿马</h5>
+<span class="text-[10px] font-bold text-secondary bg-secondary-fixed px-2 py-0.5 rounded">顶级瑰夏</span>
+</div>
+<p class="text-secondary text-sm">传奇瑰夏品种的故乡，拥有如茶般的花香和水蜜桃般的甜感。</p>
+</a>
+<!-- Costa Rica -->
+<a href="../regions/costa-rica.html" class="min-w-[320px] snap-start bg-white rounded-3xl p-6 shadow-sm group border border-surface-container hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer">
+<img alt="哥斯达黎加晒豆场" class="w-full h-48 object-cover rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-500" src="https://images.pexels.com/photos/2398220/pexels-photo-2398220.jpeg?auto=compress&cs=tinysrgb&w=500"/>
+<div class="flex justify-between items-center mb-2">
+<h5 class="font-headline text-xl text-primary">哥斯达黎加</h5>
+<span class="text-[10px] font-bold text-tertiary-container bg-tertiary-fixed px-2 py-0.5 rounded">蜜处理法</span>
+</div>
+<p class="text-secondary text-sm">以纯净的风味和首创的"蜜处理"工艺著称，增加了丰富的果甜。</p>
+</a>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary text-white/80 py-12 px-6 mt-24">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<div>
+<h4 class="font-headline font-bold text-white mb-4">关于我们</h4>
+<p class="text-sm opacity-70 leading-relaxed">匠心咖啡致力于呈现世界最优秀的咖啡豆，让每一位爱好者都能体验风土的故事。</p>
+</div>
+<div>
+<h4 class="font-headline font-bold text-white mb-4">快速链接</h4>
+<ul class="text-sm space-y-2 opacity-70">
+<li><a href="../_1/code.html" class="hover:text-white transition-colors">首页</a></li>
+<li><a href="../varieties/code.html" class="hover:text-white transition-colors">咖啡品种</a></li>
+<li><a href="../brew_guide/code.html" class="hover:text-white transition-colors">冲泡指南</a></li>
+<li><a href="../admin/login.html" class="hover:text-white transition-colors">后台管理</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-white mb-4">联系方式</h4>
+<p class="text-sm opacity-70">
+<span class="block">邮箱: contact@coffee.com</span>
+<span class="block">电话: +86 (0)10 1234 5678</span>
+</p>
+</div>
+<div>
+<h4 class="font-headline font-bold text-white mb-4">关注我们</h4>
+<div class="flex gap-3">
+<a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm">language</span>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm">mail</span>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-white/10 pt-8 text-center text-sm opacity-60">
+<p>© 2026 匠心咖啡. All rights reserved. | <a href="#" class="hover:opacity-100">隐私政策</a> | <a href="#" class="hover:opacity-100">使用条款</a></p>
+</div>
+</div>
+</footer>
+</main>
+
+<!-- Bottom nav injected by nav.js -->
+</body>
+</html>

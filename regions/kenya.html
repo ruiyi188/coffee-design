@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>匠心咖啡 — kenya</title>
+<meta name="theme-color" content="#3E2723" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/style.css" rel="stylesheet"/>
+<script src="../assets/main.js" defer></script>
+<script src="../assets/nav.js" defer></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#3E2723",
+        "secondary": "#655d5a",
+        "surface": "#fafaf5",
+        "on-surface": "#1a1c19",
+        "on-primary": "#ffffff",
+        "outline": "#827472",
+        "tertiary-container": "#18331b",
+        "on-tertiary-fixed": "#05210a",
+        "surface-container-low": "#f4f4ef"
+      },
+      fontFamily: {
+        "noto-serif": ["Noto Serif SC", "serif"],
+        "headline": ["Noto Serif SC", "serif"],
+        "body": ["Noto Serif SC", "serif"],
+        "label": ["Plus Jakarta Sans", "sans-serif"]
+      }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+body { min-height: max(884px, 100dvh); font-family: 'Noto Serif SC', serif; }
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fafaf5]/80 backdrop-blur-md shadow-[0_12px_32px_rgba(62,39,35,0.04)] flex items-center justify-between px-6 h-20">
+<a href="../terroir/code.html" class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[#3E2723]">arrow_back</span>
+</a>
+<h1 class="font-headline font-bold text-[#3E2723] text-2xl tracking-tight">肯尼亚</h1>
+<a href="../admin/login.html" class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[#3E2723]">search</span>
+</a>
+</nav>
+
+<main class="pt-32 pb-32">
+<!-- Hero Section -->
+<section class="relative h-[500px] overflow-hidden mb-12">
+<img alt="肯尼亚高地咖啡种植园" class="w-full h-full object-cover" src="https://images.pexels.com/photos/2398220/pexels-photo-2398220.jpeg?auto=compress&cs=tinysrgb&w=1200"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 text-white">
+<h2 class="font-noto-serif text-5xl font-black mb-4">肯尼亚</h2>
+<p class="text-xl text-white/80">东非的咖啡明珠 - 以其明亮的酸度和黑加仑般的果香而闻名</p>
+</div>
+</section>
+
+<!-- Content -->
+<div class="max-w-4xl mx-auto px-6 space-y-12">
+<!-- Overview -->
+<section>
+<h3 class="font-noto-serif text-3xl font-bold text-primary mb-6">概览</h3>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<p class="text-secondary text-lg leading-relaxed mb-4">
+肯尼亚是东非最重要的咖啡生产国之一，其咖啡因独特的黑加仑风味和明亮的酸度而备受推崇。这个国家的高地和火山土壤为咖啡种植提供了理想的条件。
+</p>
+<p class="text-secondary text-lg leading-relaxed">
+肯尼亚咖啡以其复杂的香气、多层次的风味和一致的品质而闻名。高质量的肯尼亚咖啡被许多咖啡爱好者视为精品咖啡。
+</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-2xl">
+<h4 class="font-headline font-bold text-primary mb-4">快速事实</h4>
+<ul class="space-y-3 text-sm">
+<li class="flex justify-between"><span class="text-secondary">海拔范围</span><span class="font-bold">1,400-2,200 米</span></li>
+<li class="flex justify-between"><span class="text-secondary">主要品种</span><span class="font-bold">SL28、SL34</span></li>
+<li class="flex justify-between"><span class="text-secondary">收获季节</span><span class="font-bold">10月-12月</span></li>
+<li class="flex justify-between"><span class="text-secondary">处理方法</span><span class="font-bold">水洗法</span></li>
+<li class="flex justify-between"><span class="text-secondary">风味特征</span><span class="font-bold">黑加仑、柑橘、明亮</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- Major Regions -->
+<section>
+<h3 class="font-noto-serif text-3xl font-bold text-primary mb-6">主要产区</h3>
+<div class="space-y-6">
+<!-- Central Kenya -->
+<div class="border-l-4 border-primary pl-6 py-4">
+<h4 class="font-headline text-2xl font-bold text-primary mb-2">中部高地 (Central Highland)</h4>
+<p class="text-secondary mb-3">包括肯山山区，海拔最高，是肯尼亚最好的咖啡产地。</p>
+<p class="text-secondary">风味特征：黑加仑、葡萄柚、明亮的酸度、花香</p>
+</div>
+
+<!-- Rift Valley -->
+<div class="border-l-4 border-primary pl-6 py-4">
+<h4 class="font-headline text-2xl font-bold text-primary mb-2">裂谷地带 (Rift Valley)</h4>
+<p class="text-secondary mb-3">火山土壤丰富，为咖啡提供了独特的矿物质成分。</p>
+<p class="text-secondary">风味特征：西柚、甜感、复杂的香料、醇厚的口感</p>
+</div>
+
+<!-- Western Kenya -->
+<div class="border-l-4 border-primary pl-6 py-4">
+<h4 class="font-headline text-2xl font-bold text-primary mb-2">西部地区 (Western)</h4>
+<p class="text-secondary mb-3">较新的咖啡产区，逐渐崭露头角。</p>
+<p class="text-secondary">风味特征：热带水果、甜蜜、温和的酸度</p>
+</div>
+</div>
+</section>
+
+<!-- Processing Methods -->
+<section>
+<h3 class="font-noto-serif text-3xl font-bold text-primary mb-6">处理工艺</h3>
+<div class="grid md:grid-cols-1 gap-6">
+<div class="bg-surface-container-low p-6 rounded-xl">
+<h4 class="font-headline font-bold text-primary mb-3">肯尼亚水洗法 (Kenyan Washed)</h4>
+<p class="text-secondary text-sm mb-3">肯尼亚使用精细的水洗过程，每个豆子经过多次清洗。咖啡先在发酵罐中发酵24-72小时，然后进行彻底清洗。</p>
+<p class="text-secondary text-sm">结果：非常清晰的风味、明亮的酸度、复杂的香气</p>
+</div>
+</div>
+</section>
+
+<!-- Flavor Profile -->
+<section class="bg-primary text-white p-8 rounded-2xl">
+<h3 class="font-headline text-2xl font-bold mb-6">风味特征</h3>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<p class="text-white/80 leading-relaxed mb-4">
+肯尼亚咖啡以其独特的黑加仑风味而闻名于世。这种特殊的风味来自于该国独特的杂交品种（特别是SL28和SL34）和高海拔的种植条件。
+</p>
+<p class="text-white/80">
+这些咖啡非常适合那些寻求复杂、明亮、具有果香特征的咖啡爱好者。肯尼亚咖啡通常被认为是精品咖啡的代表。
+</p>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>黑加仑和葡萄柚</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>柠檬和葡萄</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>花香和草本</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>明亮的酸度</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>复杂的香气</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="text-center py-12">
+<h3 class="font-headline text-3xl font-bold text-primary mb-4">准备好品尝肯尼亚咖啡了吗？</h3>
+<p class="text-secondary text-lg mb-8 max-w-2xl mx-auto">选择你喜欢的冲泡方式，体验这个东非国家赋予咖啡的独特魅力。</p>
+<a href="../brew_guide/code.html" class="inline-block px-8 py-3 bg-primary text-white rounded-full hover:opacity-90 transition-opacity font-semibold">
+查看冲泡指南
+</a>
+</section>
+</div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-primary text-white/80 py-8 px-6 text-center text-sm">
+<p>© 2026 匠心咖啡 | <a href="../terroir/code.html" class="hover:text-white">返回产地页面</a></p>
+</footer>
+
+<!-- Bottom Nav -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-[#fafaf5]/90 backdrop-blur-xl shadow-[0_-8px_24px_rgba(62,39,35,0.06)] rounded-t-[2rem]">
+<a href="../_1/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">首页</span>
+</a>
+<a href="../terroir/code.html" class="flex flex-col items-center justify-center bg-[#ece0dc] text-[#3E2723] rounded-full px-5 py-2 scale-110 transition-all active:scale-90">
+<span class="material-symbols-outlined">public</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">产地</span>
+</a>
+<a href="../varieties/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">coffee</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">品种</span>
+</a>
+<a href="../brew_guide/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">local_cafe</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">冲煮</span>
+</a>
+<a href="../settings/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">设置</span>
+</a>
+</nav>
+</body>
+</html>

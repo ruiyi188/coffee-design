@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>系统设置 | 咖啡后台管理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#271310",
+        "secondary": "#655d5a",
+        "surface": "#fafaf5",
+        "surface-container": "#eeeee9",
+        "surface-container-low": "#f4f4ef",
+        "surface-container-high": "#e8e8e3",
+        "on-surface": "#1a1c19",
+        "on-primary": "#ffffff",
+        "outline": "#827472",
+        "error": "#ba1a1a",
+        "success": "#34a853"
+      }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400; }
+body { font-family: 'Noto Serif SC', serif; }
+.sidebar-active { @apply bg-surface-container text-primary; }
+.toggle-switch input:checked ~ .toggle-slider { @apply bg-success; }
+.toggle-switch input:checked ~ .toggle-slider:before { transform: translateX(20px); }
+</style>
+</head>
+<body class="bg-surface text-on-surface">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-primary text-white fixed h-screen overflow-y-auto">
+<div class="p-6 border-b border-white/10">
+<h1 class="font-bold text-xl flex items-center gap-2">
+<span class="material-symbols-outlined">coffee</span>
+后台管理
+</h1>
+</div>
+<nav class="p-4 space-y-2">
+<a href="./dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+仪表盘
+</a>
+<a href="./content.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">article</span>
+内容管理
+</a>
+<a href="./accounts.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">person</span>
+账户管理
+</a>
+<a href="./analytics.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">bar_chart</span>
+数据分析
+</a>
+<a href="./settings.html" class="sidebar-active flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-primary">
+<span class="material-symbols-outlined">settings</span>
+系统设置
+</a>
+</nav>
+<div class="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors cursor-pointer" onclick="logout()">
+<span class="material-symbols-outlined">logout</span>
+<span>退出登录</span>
+</div>
+</div>
+</aside>
+
+<!-- Main Content -->
+<main class="flex-1 ml-64 overflow-auto">
+<!-- Top Bar -->
+<header class="bg-white border-b border-outline/10 sticky top-0 z-40">
+<div class="px-8 py-4">
+<h2 class="text-2xl font-bold text-primary">系统设置</h2>
+<p class="text-sm text-secondary mt-1">管理系统配置、安全性和高级选项</p>
+</header>
+
+<!-- Content -->
+<div class="p-8">
+<!-- Settings Tabs -->
+<div class="grid grid-cols-4 gap-6">
+<!-- Sidebar Settings Nav -->
+<div class="col-span-1">
+<div class="space-y-1 sticky top-0">
+<button class="settings-tab w-full text-left px-4 py-3 rounded-lg hover:bg-surface-container transition-colors active:bg-primary active:text-on-primary font-medium" onclick="switchTab('general')">
+<span class="material-symbols-outlined align-middle mr-2 text-lg">settings</span>
+常规设置
+</button>
+<button class="settings-tab w-full text-left px-4 py-3 rounded-lg hover:bg-surface-container transition-colors font-medium" onclick="switchTab('security')">
+<span class="material-symbols-outlined align-middle mr-2 text-lg">security</span>
+安全性
+</button>
+<button class="settings-tab w-full text-left px-4 py-3 rounded-lg hover:bg-surface-container transition-colors font-medium" onclick="switchTab('email')">
+<span class="material-symbols-outlined align-middle mr-2 text-lg">mail</span>
+邮件配置
+</button>
+<button class="settings-tab w-full text-left px-4 py-3 rounded-lg hover:bg-surface-container transition-colors font-medium" onclick="switchTab('backup')">
+<span class="material-symbols-outlined align-middle mr-2 text-lg">backup</span>
+备份恢复
+</button>
+</div>
+</div>
+
+<!-- Tab Contents -->
+<div class="col-span-3">
+<!-- General Settings -->
+<div id="general-tab" class="space-y-6">
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">网站信息</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-primary mb-2">网站名称</label>
+<input type="text" value="匠心咖啡" class="w-full px-4 py-2 border border-outline/20 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-primary mb-2">网站描述</label>
+<textarea rows="4" class="w-full px-4 py-2 border border-outline/20 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors">致力于为咖啡爱好者提供最新的品种信息、冲泡指南和产地故事。</textarea>
+</div>
+<div>
+<label class="block text-sm font-medium text-primary mb-2">联系邮箱</label>
+<input type="email" value="contact@coffee.com" class="w-full px-4 py-2 border border-outline/20 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"/>
+</div>
+</div>
+</div>
+
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">显示设置</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-primary">启用评论功能</label>
+<label class="toggle-switch relative inline-flex cursor-pointer">
+<input type="checkbox" checked class="sr-only peer"/>
+<div class="toggle-slider peer relative inline-block w-11 h-6 bg-gray-300 rounded-full transition peer-checked:bg-success"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-primary">启用用户注册</label>
+<label class="toggle-switch relative inline-flex cursor-pointer">
+<input type="checkbox" class="sr-only peer"/>
+<div class="toggle-slider peer relative inline-block w-11 h-6 bg-gray-300 rounded-full transition peer-checked:bg-success"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-primary">启用搜索引擎索引</label>
+<label class="toggle-switch relative inline-flex cursor-pointer">
+<input type="checkbox" checked class="sr-only peer"/>
+<div class="toggle-slider peer relative inline-block w-11 h-6 bg-gray-300 rounded-full transition peer-checked:bg-success"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Security Settings -->
+<div id="security-tab" class="hidden space-y-6">
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">密码策略</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-primary mb-2">最小密码长度</label>
+<input type="number" value="8" min="6" max="32" class="w-full px-4 py-2 border border-outline/20 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/10"/>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-primary">需要强密码（大小写+数字）</label>
+<label class="toggle-switch relative inline-flex cursor-pointer">
+<input type="checkbox" checked class="sr-only peer"/>
+<div class="toggle-slider peer relative inline-block w-11 h-6 bg-gray-300 rounded-full transition"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-primary">定期更改密码提醒</label>
+<label class="toggle-switch relative inline-flex cursor-pointer">
+<input type="checkbox" checked class="sr-only peer"/>
+<div class="toggle-slider peer relative inline-block w-11 h-6 bg-gray-300 rounded-full transition"></div>
+</label>
+</div>
+</div>
+</div>
+
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">会话管理</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-primary mb-2">会话超时时间（分钟）</label>
+<input type="number" value="30" min="5" max="240" class="w-full px-4 py-2 border border-outline/20 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/10"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-primary mb-2">最大失败登录次数</label>
+<input type="number" value="5" min="1" max="10" class="w-full px-4 py-2 border border-outline/20 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/10"/>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Email Settings -->
+<div id="email-tab" class="hidden space-y-6">
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">邮件服务器</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-primary mb-2">SMTP 服务器</label>
+<input type="text" placeholder="smtp.example.com" class="w-full px-4 py-2 border border-outline/20 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/10"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium text-primary mb-2">端口</label>
+<input type="number" value="587" class="w-full px-4 py-2 border border-outline/20 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/10"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-primary mb-2">用户名</label>
+<input type="text" placeholder="your-email@example.com" class="w-full px-4 py-2 border border-outline/20 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/10"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-primary mb-2">发件人地址</label>
+<input type="email" placeholder="noreply@coffee.com" class="w-full px-4 py-2 border border-outline/20 rounded-lg focus:border-primary focus:ring-2 focus:ring-primary/10"/>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Backup Settings -->
+<div id="backup-tab" class="hidden space-y-6">
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">数据备份</h3>
+<div class="space-y-4">
+<button class="w-full px-6 py-3 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">download</span>
+立即备份数据库
+</button>
+<div class="grid grid-cols-2 gap-3">
+<button class="px-4 py-2 border border-outline/20 rounded-lg hover:bg-surface-container transition-colors text-sm">
+恢复备份
+</button>
+<button class="px-4 py-2 border border-outline/20 rounded-lg hover:bg-surface-container transition-colors text-sm">
+查看备份历史
+</button>
+</div>
+</div>
+</div>
+
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">备份历史</h3>
+<div class="space-y-3">
+<div class="flex justify-between items-center p-3 bg-surface-container-low rounded-lg">
+<div>
+<p class="font-medium text-primary">数据库备份 - 2026-03-28</p>
+<p class="text-xs text-secondary">大小: 24.5 MB</p>
+</div>
+<button class="text-primary hover:opacity-70 text-sm font-medium">下载</button>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface-container-low rounded-lg">
+<div>
+<p class="font-medium text-primary">数据库备份 - 2026-03-27</p>
+<p class="text-xs text-secondary">大小: 24.3 MB</p>
+</div>
+<button class="text-primary hover:opacity-70 text-sm font-medium">下载</button>
+</div>
+<div class="flex justify-between items-center p-3 bg-surface-container-low rounded-lg">
+<div>
+<p class="font-medium text-primary">数据库备份 - 2026-03-26</p>
+<p class="text-xs text-secondary">大小: 24.1 MB</p>
+</div>
+<button class="text-primary hover:opacity-70 text-sm font-medium">下载</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Save Button -->
+<div class="col-span-3 mt-8 flex gap-4 justify-end">
+<button class="px-6 py-2 border border-outline/20 rounded-lg hover:bg-surface-container transition-colors font-medium">
+取消
+</button>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-opacity font-medium" onclick="saveSettings()">
+保存更改
+</button>
+</div>
+</div>
+</main>
+</div>
+
+<script>
+function switchTab(tab) {
+  // Hide all tabs
+  document.querySelectorAll('[id$="-tab"]').forEach(el => {
+    el.classList.add('hidden');
+  });
+  
+  // Show selected tab
+  const selectedTab = document.getElementById(tab + '-tab');
+  if (selectedTab) {
+    selectedTab.classList.remove('hidden');
+  }
+  
+  // Update button states
+  document.querySelectorAll('.settings-tab').forEach(btn => {
+    btn.classList.remove('bg-primary', 'text-on-primary');
+  });
+  event.target.closest('.settings-tab').classList.add('bg-primary', 'text-on-primary');
+}
+
+function saveSettings() {
+  alert('设置已保存！');
+}
+
+function logout() {
+  if (confirm('确定要退出登录吗？')) {
+    window.location.href = './login.html';
+  }
+}
+</script>
+</body>
+</html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>系统设置 | 咖啡后台管理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#271310",
+        "secondary": "#655d5a",
+        "surface": "#fafaf5",
+        "surface-container": "#eeeee9",
+        "surface-container-low": "#f4f4ef",
+        "surface-container-high": "#e8e8e3",
+        "on-surface": "#1a1c19",
+        "on-primary": "#ffffff",
+        "outline": "#827472"
+      }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400; }
+body { font-family: 'Noto Serif SC', serif; }
+.sidebar-active { @apply bg-surface-container text-primary; }
+.toggle-bg { @apply relative inline-flex items-center w-11 h-6 bg-gray-300 rounded-full cursor-pointer transition-colors; }
+.toggle-bg.active { @apply bg-primary; }
+.toggle-dot { @apply absolute left-1 w-4 h-4 bg-white rounded-full transition-transform; }
+.toggle-bg.active .toggle-dot { @apply translate-x-5; }
+</style>
+</head>
+<body class="bg-surface text-on-surface">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-primary text-white fixed h-screen overflow-y-auto">
+<div class="p-6 border-b border-white/10">
+<h1 class="font-bold text-xl flex items-center gap-2">
+<span class="material-symbols-outlined">coffee</span>
+后台管理
+</h1>
+</div>
+<nav class="p-4 space-y-2">
+<a href="./dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+仪表盘
+</a>
+<a href="./content.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">article</span>
+内容管理
+</a>
+<a href="./accounts.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">person</span>
+账户管理
+</a>
+<a href="./analytics.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">bar_chart</span>
+数据分析
+</a>
+<a href="./settings.html" class="sidebar-active flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-primary">
+<span class="material-symbols-outlined">settings</span>
+系统设置
+</a>
+</nav>
+<div class="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">logout</span>
+<span>退出登录</span>
+</div>
+</div>
+</aside>
+
+<!-- Main Content -->
+<main class="flex-1 ml-64 overflow-auto">
+<!-- Top Bar -->
+<header class="bg-white border-b border-outline/10 sticky top-0 z-40">
+<div class="flex justify-between items-center px-8 py-4">
+<h2 class="text-2xl font-bold text-primary">系统设置</h2>
+<button class="bg-primary text-white px-6 py-2 rounded-lg hover:opacity-90 transition-opacity">保存更改</button>
+</header>
+
+<!-- Content -->
+<div class="p-8 max-w-4xl">
+<!-- Website Settings -->
+<div class="bg-white rounded-lg p-8 border border-outline/10 mb-6">
+<h3 class="text-xl font-bold text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">language</span>
+网站设置
+</h3>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-semibold text-primary mb-2">网站标题</label>
+<input type="text" value="匠心叙事 - 咖啡文化平台" class="w-full px-4 py-3 border border-outline/20 rounded-lg focus:outline-none focus:border-primary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-primary mb-2">网站描述</label>
+<textarea class="w-full px-4 py-3 border border-outline/20 rounded-lg focus:outline-none focus:border-primary h-24">探索咖啡的艺术与科学，从产地到杯子，品味每一刻的温暖与仪式。</textarea>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-semibold text-primary mb-2">网站 URL</label>
+<input type="text" value="https://coffee-narrative.com" class="w-full px-4 py-3 border border-outline/20 rounded-lg focus:outline-none focus:border-primary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-primary mb-2">支持的语言</label>
+<select class="w-full px-4 py-3 border border-outline/20 rounded-lg focus:outline-none focus:border-primary">
+<option>简体中文, English</option>
+<option>仅简体中文</option>
+<option>仅 English</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Email Settings -->
+<div class="bg-white rounded-lg p-8 border border-outline/10 mb-6">
+<h3 class="text-xl font-bold text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">mail</span>
+邮件设置
+</h3>
+<div class="space-y-6">
+<div class="grid grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-semibold text-primary mb-2">SMTP 服务器</label>
+<input type="text" value="smtp.gmail.com" class="w-full px-4 py-3 border border-outline/20 rounded-lg focus:outline-none focus:border-primary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-primary mb-2">SMTP 端口</label>
+<input type="text" value="587" class="w-full px-4 py-3 border border-outline/20 rounded-lg focus:outline-none focus:border-primary"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-semibold text-primary mb-2">发件人邮箱</label>
+<input type="email" value="noreply@coffee-narrative.com" class="w-full px-4 py-3 border border-outline/20 rounded-lg focus:outline-none focus:border-primary"/>
+</div>
+<div>
+<label class="block text-sm font-semibold text-primary mb-2">邮件密码</label>
+<input type="password" value="••••••••••••••••" class="w-full px-4 py-3 border border-outline/20 rounded-lg focus:outline-none focus:border-primary"/>
+</div>
+</div>
+<div>
+<label class="flex items-center gap-3 cursor-pointer">
+<div class="toggle-bg active">
+<div class="toggle-dot"></div>
+</div>
+<span class="text-sm font-medium text-primary">启用邮件通知</span>
+</label>
+</div>
+</div>
+</div>
+
+<!-- Security Settings -->
+<div class="bg-white rounded-lg p-8 border border-outline/10 mb-6">
+<h3 class="text-xl font-bold text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">security</span>
+安全设置
+</h3>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-semibold text-primary mb-2">会话超时时间（分钟）</label>
+<input type="number" value="30" class="w-full px-4 py-3 border border-outline/20 rounded-lg focus:outline-none focus:border-primary"/>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div>
+<label class="flex items-center gap-3 cursor-pointer">
+<div class="toggle-bg active">
+<div class="toggle-dot"></div>
+</div>
+<span class="text-sm font-medium text-primary">启用两步验证</span>
+</label>
+</div>
+<div>
+<label class="flex items-center gap-3 cursor-pointer">
+<div class="toggle-bg">
+<div class="toggle-dot"></div>
+</div>
+<span class="text-sm font-medium text-primary">强制 HTTPS</span>
+</label>
+</div>
+</div>
+<div>
+<label class="block text-sm font-semibold text-primary mb-2">允许登录的 IP 地址（每行一个）</label>
+<textarea class="w-full px-4 py-3 border border-outline/20 rounded-lg focus:outline-none focus:border-primary h-20" placeholder="192.168.1.1&#10;10.0.0.0/8"></textarea>
+</div>
+</div>
+</div>
+
+<!-- Content Settings -->
+<div class="bg-white rounded-lg p-8 border border-outline/10 mb-6">
+<h3 class="text-xl font-bold text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">article</span>
+内容设置
+</h3>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-semibold text-primary mb-2">每页显示文章数</label>
+<input type="number" value="10" class="w-full px-4 py-3 border border-outline/20 rounded-lg focus:outline-none focus:border-primary"/>
+</div>
+<div>
+<label class="flex items-center gap-3 cursor-pointer">
+<div class="toggle-bg active">
+<div class="toggle-dot"></div>
+</div>
+<span class="text-sm font-medium text-primary">启用评论功能</span>
+</label>
+</div>
+<div>
+<label class="flex items-center gap-3 cursor-pointer">
+<div class="toggle-bg">
+<div class="toggle-dot"></div>
+</div>
+<span class="text-sm font-medium text-primary">评论需要审核</span>
+</label>
+</div>
+<div>
+<label class="block text-sm font-semibold text-primary mb-2">默认内容分类</label>
+<select class="w-full px-4 py-3 border border-outline/20 rounded-lg focus:outline-none focus:border-primary">
+<option>品种介绍</option>
+<option>冲煮指南</option>
+<option>产地故事</option>
+<option>烘焙技艺</option>
+</select>
+</div>
+</div>
+</div>
+
+<!-- Backup Settings -->
+<div class="bg-white rounded-lg p-8 border border-outline/10 mb-6">
+<h3 class="text-xl font-bold text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">backup</span>
+备份与恢复
+</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center p-4 border border-outline/10 rounded-lg">
+<div>
+<p class="text-sm font-semibold text-primary">最后备份时间</p>
+<p class="text-xs text-secondary">2026-03-22 02:30</p>
+</div>
+<button class="px-4 py-2 bg-surface-container-low text-primary rounded-lg hover:bg-surface-container transition-colors text-sm">立即备份</button>
+</div>
+<div class="flex justify-between items-center p-4 border border-outline/10 rounded-lg">
+<div>
+<p class="text-sm font-semibold text-primary">自动备份设置</p>
+<p class="text-xs text-secondary">每天晚上 2:30 自动备份</p>
+</div>
+<label class="flex items-center gap-3 cursor-pointer">
+<div class="toggle-bg active">
+<div class="toggle-dot"></div>
+</div>
+</label>
+</div>
+<div class="flex justify-between items-center p-4 border border-outline/10 rounded-lg">
+<div>
+<p class="text-sm font-semibold text-primary">备份保留天数</p>
+<p class="text-xs text-secondary">保留最近 30 天的备份</p>
+</div>
+<select class="px-4 py-2 border border-outline/20 rounded-lg text-sm">
+<option>7 天</option>
+<option>15 天</option>
+<option>30 天</option>
+<option>90 天</option>
+</select>
+</div>
+</div>
+</div>
+
+<!-- Danger Zone -->
+<div class="bg-white rounded-lg p-8 border border-error/30 mb-6">
+<h3 class="text-xl font-bold text-error mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">warning</span>
+危险操作区
+</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center p-4 border border-error/20 rounded-lg bg-error/5">
+<div>
+<p class="text-sm font-semibold text-primary">清除缓存</p>
+<p class="text-xs text-secondary">删除所有缓存数据，这会暂时降低网站性能</p>
+</div>
+<button class="px-4 py-2 bg-error/20 text-error rounded-lg hover:bg-error/30 transition-colors text-sm">清除缓存</button>
+</div>
+<div class="flex justify-between items-center p-4 border border-error/20 rounded-lg bg-error/5">
+<div>
+<p class="text-sm font-semibold text-primary">重置数据库</p>
+<p class="text-xs text-secondary">恢复数据库到默认状态，所有数据将丢失</p>
+</div>
+<button class="px-4 py-2 bg-error/20 text-error rounded-lg hover:bg-error/30 transition-colors text-sm">重置</button>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+// Toggle switches functionality
+document.querySelectorAll('.toggle-bg').forEach(toggle => {
+  toggle.addEventListener('click', function() {
+    this.classList.toggle('active');
+  });
+});
+</script>
+</body>
+</html>

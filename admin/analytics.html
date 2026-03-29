@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>数据分析 | 咖啡后台管理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#271310",
+        "secondary": "#655d5a",
+        "surface": "#fafaf5",
+        "surface-container": "#eeeee9",
+        "surface-container-low": "#f4f4ef",
+        "surface-container-high": "#e8e8e3",
+        "on-surface": "#1a1c19",
+        "on-primary": "#ffffff",
+        "outline": "#827472",
+        "error": "#ba1a1a",
+        "success": "#34a853",
+        "info": "#1f73e7",
+        "warning": "#f57c00"
+      }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400; }
+body { font-family: 'Noto Serif SC', serif; }
+.sidebar-active { @apply bg-surface-container text-primary; }
+.stat-card { @apply bg-surface-container-low rounded-lg p-6 border border-outline/10; }
+</style>
+</head>
+<body class="bg-surface text-on-surface">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-primary text-white fixed h-screen overflow-y-auto">
+<div class="p-6 border-b border-white/10">
+<h1 class="font-bold text-xl flex items-center gap-2">
+<span class="material-symbols-outlined">coffee</span>
+后台管理
+</h1>
+</div>
+<nav class="p-4 space-y-2">
+<a href="./dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+仪表盘
+</a>
+<a href="./content.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">article</span>
+内容管理
+</a>
+<a href="./accounts.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">person</span>
+账户管理
+</a>
+<a href="./analytics.html" class="sidebar-active flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-primary">
+<span class="material-symbols-outlined">bar_chart</span>
+数据分析
+</a>
+<a href="./settings.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+系统设置
+</a>
+</nav>
+<div class="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors cursor-pointer" onclick="logout()">
+<span class="material-symbols-outlined">logout</span>
+<span>退出登录</span>
+</div>
+</div>
+</aside>
+
+<!-- Main Content -->
+<main class="flex-1 ml-64 overflow-auto">
+<!-- Top Bar -->
+<header class="bg-white border-b border-outline/10 sticky top-0 z-40">
+<div class="flex justify-between items-center px-8 py-4">
+<div>
+<h2 class="text-2xl font-bold text-primary">数据分析</h2>
+<p class="text-sm text-secondary mt-1">实时数据统计与性能分析</p>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 border border-outline/20 rounded-lg text-sm hover:bg-surface-container-low">本周</button>
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg text-sm hover:opacity-90">本月</button>
+<button class="px-4 py-2 border border-outline/20 rounded-lg text-sm hover:bg-surface-container-low">本年</button>
+</div>
+</header>
+
+<!-- Content -->
+<div class="p-8">
+<!-- Key Metrics -->
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="stat-card">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-sm text-secondary mb-1">总访问量</p>
+<p class="text-3xl font-bold text-primary">45.2K</p>
+</div>
+<span class="material-symbols-outlined text-info">trending_up</span>
+</div>
+<p class="text-xs text-secondary">↑ 12.5% 环比增长</p>
+</div>
+
+<div class="stat-card">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-sm text-secondary mb-1">新增用户</p>
+<p class="text-3xl font-bold text-primary">128</p>
+</div>
+<span class="material-symbols-outlined text-success">person_add</span>
+</div>
+<p class="text-xs text-secondary">↑ 8.3% 环比增长</p>
+</div>
+
+<div class="stat-card">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-sm text-secondary mb-1">平均停留时长</p>
+<p class="text-3xl font-bold text-primary">3m 24s</p>
+</div>
+<span class="material-symbols-outlined text-warning">schedule</span>
+</div>
+<p class="text-xs text-secondary">↑ 2.1% 环比增长</p>
+</div>
+
+<div class="stat-card">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-sm text-secondary mb-1">跳出率</p>
+<p class="text-3xl font-bold text-primary">42.3%</p>
+</div>
+<span class="material-symbols-outlined text-error">trending_down</span>
+</div>
+<p class="text-xs text-secondary">↓ 3.2% 环比下降</p>
+</div>
+</div>
+
+<!-- Charts -->
+<div class="grid grid-cols-2 gap-6 mb-8">
+<!-- Visitor Trend -->
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">访问趋势</h3>
+<div class="h-64 flex items-end justify-between gap-2 px-2">
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary/30 rounded-t" style="height: 60%"></div>
+<span class="text-xs text-secondary">周一</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary/40 rounded-t" style="height: 70%"></div>
+<span class="text-xs text-secondary">周二</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary/50 rounded-t" style="height: 75%"></div>
+<span class="text-xs text-secondary">周三</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary/60 rounded-t" style="height: 85%"></div>
+<span class="text-xs text-secondary">周四</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary/70 rounded-t" style="height: 80%"></div>
+<span class="text-xs text-secondary">周五</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary/80 rounded-t" style="height: 90%"></div>
+<span class="text-xs text-secondary">周六</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full bg-primary rounded-t" style="height: 100%"></div>
+<span class="text-xs text-secondary">周日</span>
+</div>
+</div>
+</div>
+
+<!-- Content Performance -->
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">热门内容</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 pb-4 border-b border-outline/10">
+<div class="flex-1">
+<p class="font-medium text-primary mb-1">瑰夏品种介绍</p>
+<p class="text-xs text-secondary">浏览次数: 2,340</p>
+</div>
+<span class="text-sm font-bold text-primary">1,200</span>
+</div>
+
+<div class="flex items-center gap-4 pb-4 border-b border-outline/10">
+<div class="flex-1">
+<p class="font-medium text-primary mb-1">V60冲泡指南</p>
+<p class="text-xs text-secondary">浏览次数: 1,890</p>
+</div>
+<span class="text-sm font-bold text-primary">950</span>
+</div>
+
+<div class="flex items-center gap-4 pb-4 border-b border-outline/10">
+<div class="flex-1">
+<p class="font-medium text-primary mb-1">巴拿马风土</p>
+<p class="text-xs text-secondary">浏览次数: 1,456</p>
+</div>
+<span class="text-sm font-bold text-primary">730</span>
+</div>
+
+<div class="flex items-center gap-4">
+<div class="flex-1">
+<p class="font-medium text-primary mb-1">深度烘焙艺术</p>
+<p class="text-xs text-secondary">浏览次数: 1,200</p>
+</div>
+<span class="text-sm font-bold text-primary">600</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Traffic Sources -->
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">流量来源分布</h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm text-secondary">直接访问</span>
+<span class="text-sm font-bold text-primary">45%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-primary rounded-full h-full" style="width: 45%"></div>
+</div>
+</div>
+
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm text-secondary">搜索引擎</span>
+<span class="text-sm font-bold text-primary">35%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-success rounded-full h-full" style="width: 35%"></div>
+</div>
+</div>
+
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm text-secondary">社交媒体</span>
+<span class="text-sm font-bold text-primary">15%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-info rounded-full h-full" style="width: 15%"></div>
+</div>
+</div>
+
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm text-secondary">其他来源</span>
+<span class="text-sm font-bold text-primary">5%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-warning rounded-full h-full" style="width: 5%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<script>
+function logout() {
+  if (confirm('确定要退出登录吗？')) {
+    window.location.href = './login.html';
+  }
+}
+</script>
+</body>
+</html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>数据分析 | 咖啡后台管理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#271310",
+        "secondary": "#655d5a",
+        "surface": "#fafaf5",
+        "surface-container": "#eeeee9",
+        "surface-container-low": "#f4f4ef",
+        "surface-container-high": "#e8e8e3",
+        "on-surface": "#1a1c19",
+        "on-primary": "#ffffff",
+        "outline": "#827472"
+      }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400; }
+body { font-family: 'Noto Serif SC', serif; }
+.sidebar-active { @apply bg-surface-container text-primary; }
+</style>
+</head>
+<body class="bg-surface text-on-surface">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-primary text-white fixed h-screen overflow-y-auto">
+<div class="p-6 border-b border-white/10">
+<h1 class="font-bold text-xl flex items-center gap-2">
+<span class="material-symbols-outlined">coffee</span>
+后台管理
+</h1>
+</div>
+<nav class="p-4 space-y-2">
+<a href="./dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+仪表盘
+</a>
+<a href="./content.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">article</span>
+内容管理
+</a>
+<a href="./accounts.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">person</span>
+账户管理
+</a>
+<a href="./analytics.html" class="sidebar-active flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-primary">
+<span class="material-symbols-outlined">bar_chart</span>
+数据分析
+</a>
+<a href="./settings.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+系统设置
+</a>
+</nav>
+<div class="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">logout</span>
+<span>退出登录</span>
+</div>
+</div>
+</aside>
+
+<!-- Main Content -->
+<main class="flex-1 ml-64 overflow-auto">
+<!-- Top Bar -->
+<header class="bg-white border-b border-outline/10 sticky top-0 z-40">
+<div class="flex justify-between items-center px-8 py-4">
+<h2 class="text-2xl font-bold text-primary">数据分析</h2>
+<select class="px-4 py-2 border border-outline/20 rounded-lg bg-surface focus:outline-none focus:border-primary">
+<option>最近 7 天</option>
+<option>最近 30 天</option>
+<option>最近 90 天</option>
+<option>最近一年</option>
+</select>
+</header>
+
+<!-- Content -->
+<div class="p-8">
+<!-- Key Metrics -->
+<div class="grid grid-cols-4 gap-6 mb-8">
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-sm text-secondary mb-1">总页面浏览</p>
+<p class="text-3xl font-bold text-primary">45.2K</p>
+</div>
+<span class="text-green-600 text-sm font-medium">↑ 12%</span>
+</div>
+<p class="text-xs text-secondary">日均 6.5K 次浏览</p>
+</div>
+
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-sm text-secondary mb-1">平均会话时长</p>
+<p class="text-3xl font-bold text-primary">4:28</p>
+</div>
+<span class="text-green-600 text-sm font-medium">↑ 8%</span>
+</div>
+<p class="text-xs text-secondary">每位用户</p>
+</div>
+
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-sm text-secondary mb-1">跳出率</p>
+<p class="text-3xl font-bold text-primary">32.5%</p>
+</div>
+<span class="text-red-600 text-sm font-medium">↓ 3%</span>
+</div>
+<p class="text-xs text-secondary">较上期改善</p>
+</div>
+
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-sm text-secondary mb-1">转化率</p>
+<p class="text-3xl font-bold text-primary">2.8%</p>
+</div>
+<span class="text-green-600 text-sm font-medium">↑ 0.5%</span>
+</div>
+<p class="text-xs text-secondary">完成目标操作</p>
+</div>
+</div>
+
+<!-- Charts -->
+<div class="grid grid-cols-2 gap-6 mb-8">
+<!-- Daily Visits Chart -->
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">每日访问量趋势</h3>
+<div class="h-80 flex items-end justify-between gap-1">
+<div class="flex-1 bg-blue-300 rounded-t h-1/2"></div>
+<div class="flex-1 bg-blue-400 rounded-t h-3/5"></div>
+<div class="flex-1 bg-blue-400 rounded-t h-1/2"></div>
+<div class="flex-1 bg-blue-500 rounded-t h-2/3"></div>
+<div class="flex-1 bg-blue-500 rounded-t h-3/4"></div>
+<div class="flex-1 bg-blue-600 rounded-t h-5/6"></div>
+<div class="flex-1 bg-primary rounded-t h-full"></div>
+<div class="flex-1 bg-primary rounded-t h-[85%]"></div>
+<div class="flex-1 bg-blue-600 rounded-t h-3/4"></div>
+<div class="flex-1 bg-blue-500 rounded-t h-2/3"></div>
+<div class="flex-1 bg-blue-400 rounded-t h-3/5"></div>
+<div class="flex-1 bg-blue-400 rounded-t h-1/2"></div>
+<div class="flex-1 bg-blue-300 rounded-t h-2/5"></div>
+<div class="flex-1 bg-blue-300 rounded-t h-1/3"></div>
+</div>
+<div class="flex justify-between text-xs text-secondary mt-4">
+<span>3月9日</span>
+<span>3月16日</span>
+<span>3月22日</span>
+</div>
+</div>
+
+<!-- Content Type Distribution -->
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">内容类型浏览分布</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="text-sm font-medium text-primary">品种介绍</span>
+<span class="text-sm font-bold text-primary">32.5%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-3">
+<div class="bg-primary rounded-full h-full" style="width: 32.5%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="text-sm font-medium text-primary">冲煮指南</span>
+<span class="text-sm font-bold text-primary">28.3%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-3">
+<div class="bg-blue-500 rounded-full h-full" style="width: 28.3%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="text-sm font-medium text-primary">产地故事</span>
+<span class="text-sm font-bold text-primary">24.2%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-3">
+<div class="bg-green-500 rounded-full h-full" style="width: 24.2%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-3">
+<span class="text-sm font-medium text-primary">烘焙技艺</span>
+<span class="text-sm font-bold text-primary">15%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-3">
+<div class="bg-orange-500 rounded-full h-full" style="width: 15%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Traffic Source & User Info -->
+<div class="grid grid-cols-3 gap-6 mb-8">
+<!-- Traffic Source -->
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">流量来源</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm text-secondary">直接访问</span>
+<div class="flex items-center gap-2">
+<span class="font-bold text-primary">42%</span>
+<span class="text-xs text-green-600">↑ 5%</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-secondary">搜索引擎</span>
+<div class="flex items-center gap-2">
+<span class="font-bold text-primary">35%</span>
+<span class="text-xs text-green-600">↑ 8%</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-secondary">社交媒体</span>
+<div class="flex items-center gap-2">
+<span class="font-bold text-primary">18%</span>
+<span class="text-xs text-red-600">↓ 2%</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-secondary">推荐网站</span>
+<div class="flex items-center gap-2">
+<span class="font-bold text-primary">5%</span>
+<span class="text-xs text-gray-600">→ 0%</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Device Distribution -->
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">设备分布</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm text-secondary">移动设备</span>
+<div class="flex items-center gap-2">
+<span class="font-bold text-primary">58%</span>
+<span class="text-xs text-green-600">↑ 12%</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-secondary">桌面设备</span>
+<div class="flex items-center gap-2">
+<span class="font-bold text-primary">35%</span>
+<span class="text-xs text-red-600">↓ 8%</span>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm text-secondary">平板设备</span>
+<div class="flex items-center gap-2">
+<span class="font-bold text-primary">7%</span>
+<span class="text-xs text-gray-600">→ 0%</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Top Pages -->
+<div class="bg-white rounded-lg p-6 border border-outline/10">
+<h3 class="text-lg font-bold text-primary mb-6">热门页面</h3>
+<div class="space-y-3">
+<div class="flex justify-between items-center pt-2 border-t">
+<span class="text-sm text-secondary">首页</span>
+<span class="font-bold text-primary">12.5K</span>
+</div>
+<div class="flex justify-between items-center pt-2 border-t">
+<span class="text-sm text-secondary">品种介绍</span>
+<span class="font-bold text-primary">8.3K</span>
+</div>
+<div class="flex justify-between items-center pt-2 border-t">
+<span class="text-sm text-secondary">冲煮指南</span>
+<span class="font-bold text-primary">7.2K</span>
+</div>
+<div class="flex justify-between items-center pt-2 border-t">
+<span class="text-sm text-secondary">产地介绍</span>
+<span class="font-bold text-primary">5.8K</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body>
+</html>

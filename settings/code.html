@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-Hans"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>设置 | 匠心咖啡</title>
+<meta name="description" content="匠心咖啡设置页面，管理你的咖啡偏好。" />
+<meta name="theme-color" content="#3E2723" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/style.css" rel="stylesheet"/>
+<script src="../assets/main.js" defer></script>
+<script src="../assets/nav.js" defer></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "surface": "#fafaf5",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#031e08",
+              "surface-container-lowest": "#ffffff",
+              "outline": "#827472",
+              "surface-tint": "#745853",
+              "secondary": "#655d5a",
+              "surface-container": "#eeeee9",
+              "on-tertiary-fixed": "#05210a",
+              "tertiary-container": "#18331b",
+              "on-error": "#ffffff",
+              "surface-container-low": "#f4f4ef",
+              "tertiary-fixed": "#caebc7",
+              "on-primary-fixed-variant": "#5b403c",
+              "surface-container-highest": "#e3e3de",
+              "primary": "#3E2723",
+              "background": "#fafaf5",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#201a18",
+              "surface-bright": "#fafaf5",
+              "on-primary-container": "#ae8d87",
+              "inverse-primary": "#e3be8",
+              "surface-container-high": "#e8e8e3",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#2b1613",
+              "secondary-fixed": "#ece0dc",
+              "outline-variant": "#d3c3c0",
+              "primary-fixed-dim": "#e3be8",
+              "on-secondary-container": "#6b6360",
+              "on-background": "#1a1c19",
+              "inverse-surface": "#2f312e",
+              "on-surface-variant": "#504442",
+              "on-secondary": "#ffffff",
+              "on-surface": "#1a1c19",
+              "on-tertiary-container": "#7e9d7c",
+              "tertiary-fixed-dim": "#afcfac",
+              "surface-dim": "#dadad5",
+              "primary-fixed": "#ffdad4",
+              "secondary-fixed-dim": "#cfc4c0",
+              "on-tertiary-fixed-variant": "#314d33",
+              "surface-variant": "#e3e3de",
+              "on-secondary-fixed-variant": "#4c4542",
+              "inverse-on-surface": "#f1f1ec",
+              "secondary-container": "#ece0dc",
+              "primary-container": "#3e2723"
+            },
+            fontFamily: {
+              "noto-serif": ["Noto Serif SC", "serif"],
+              "plus-jakarta-sans": ["Plus Jakarta Sans", "sans-serif"],
+              "headline": ["Noto Serif SC", "serif"],
+              "body": ["Noto Serif SC", "serif"],
+              "label": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Noto Serif SC', serif;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 bg-[#fafaf5]/80 dark:bg-[#3E2723]/80 backdrop-blur-xl z-50 no-border">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#3E2723] dark:text-[#ece0dc] hover:opacity-80 transition-opacity cursor-pointer">menu</span>
+<h1 class="font-noto-serif font-bold text-[#3E2723] dark:text-[#ece0dc] text-lg tracking-tight">匠心咖啡</h1>
+</div>
+<a href="../admin/login.html" class="w-8 h-8 rounded-full overflow-hidden bg-secondary-container hover:opacity-80 transition-opacity active:scale-95 duration-200 flex items-center justify-center">
+<img alt="管理系统" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb8Wd_Uvcwg3mNKnrPG2X74B1qGyJzXH8GnVpcha7VAcEOw9M3SnPYlRi3SrcrZI41dZjfRxlNK8H38UoVU0A1GYqgMATSxKj9H4dgG5VmDXHP9LZ46zmMi5LF0jFMy0_XIyG7ZDdWjZ0F7b112HAj3BE1skjMh2eyMjPuM__scLeSbbeDfQb3KlD86qxh0FqP-V2M4AQR_YFlllMqfnCiNyH6spQPFucXikQviB4KggRB-Qu8eq9TGS5dsS_Z0mrS0PsWDIUeM8d6"/>
+</a>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto space-y-10">
+<!-- Profile Section -->
+<section class="flex flex-col items-center gap-6 py-4">
+<div class="relative">
+<div class="w-24 h-24 rounded-lg overflow-hidden shadow-2xl">
+<img alt="馆长" class="w-full h-full object-cover" data-alt="Close up portrait of a smiling man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4g3VaupX11X4xBSbbi3qnrlOkUdo00yKWMpfXJ5-6rHGy17kDrirvSx8JLZgSLD2DjsZRRKRxa9xnnw7q9XTIUUJd0So0Qrn4v_g8euzGcePipJTmSvHdo3IqPQj3JTptrV2Xb0LGpRgQhpOT_M2ttAv8_iWFI1nuBkqrAdlPPp0VBoWi0rlTg7_oBKe9dOcuWtJuBDUxb0bscCUpDraoZo6kkysiHwEiOP-6wDm2PETjjkS-EMI7RRXoIpPqNrgHVjzC9MMRgESk"/>
+</div>
+<div class="absolute bottom-0 right-0 bg-primary p-1.5 rounded-full text-on-primary shadow-lg border-2 border-surface">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">edit</span>
+</div>
+</div>
+<div class="text-center">
+<h1 class="font-noto-serif text-3xl md:text-4xl font-black text-primary tracking-tight mb-2">咖啡馆长</h1>
+<p class="font-noto-serif text-lg text-secondary font-medium">咖啡爱好者</p>
+</div>
+</section>
+<!-- Settings List -->
+<div class="space-y-8">
+<!-- Preferences Group -->
+<div class="space-y-4">
+<h3 class="font-noto-serif text-xs md:text-sm font-bold uppercase tracking-widest text-on-surface-variant px-2 mb-2">常规</h3>
+<div class="bg-surface-container-low rounded-lg overflow-hidden">
+<!-- Language Selection -->
+<div class="flex items-center justify-between p-5 hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary">language</span>
+<div>
+<p class="font-bold text-primary">语言选择</p>
+<p class="text-sm text-on-secondary-container">简体中文 (已选)</p>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-secondary-container px-4 py-1.5 rounded-full">
+<span class="text-xs font-bold text-primary">中</span>
+<div class="w-px h-3 bg-outline-variant"></div>
+<span class="text-xs font-medium text-secondary">EN</span>
+</div>
+</div>
+<!-- Appearance -->
+<div class="flex items-center justify-between p-5 hover:bg-surface-container-high transition-colors cursor-pointer group border-t border-outline-variant/10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary">dark_mode</span>
+<div>
+<p class="font-bold text-primary">外观</p>
+<p class="text-sm text-on-secondary-container">浅色模式</p>
+</div>
+</div>
+<div class="w-12 h-6 bg-primary-container rounded-full relative p-1 flex items-center">
+<div class="w-4 h-4 bg-surface rounded-full shadow-sm translate-x-0 transition-transform"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Content Group -->
+<div class="space-y-4">
+<h3 class="font-noto-serif text-xs md:text-sm font-bold uppercase tracking-widest text-on-surface-variant px-2 mb-2">账户</h3>
+<div class="bg-surface-container-low rounded-lg overflow-hidden">
+<div class="flex items-center justify-between p-5 hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary">notifications</span>
+<div>
+<p class="font-bold text-primary">消息通知</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-5 hover:bg-surface-container-high transition-colors cursor-pointer group border-t border-outline-variant/10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary">history_edu</span>
+<div>
+<p class="font-bold text-primary">冲煮历史</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- About Group -->
+<div class="space-y-4">
+<h3 class="font-noto-serif text-xs md:text-sm font-bold uppercase tracking-widest text-on-surface-variant px-2 mb-2">支持</h3>
+<div class="bg-surface-container-low rounded-lg overflow-hidden">
+<div class="flex items-center justify-between p-5 hover:bg-surface-container-high transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary">info</span>
+<div>
+<p class="font-bold text-primary">关于叙事</p>
+<p class="text-sm text-on-secondary-container">版本 2.4.0</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-5 hover:bg-surface-container-high transition-colors cursor-pointer group border-t border-outline-variant/10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-error">logout</span>
+<div>
+<p class="font-bold text-error">退出登录</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Logo -->
+<div class="pt-8 pb-12 flex flex-col items-center gap-2 opacity-30">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">coffee</span>
+<p class="font-noto-serif font-black text-primary tracking-widest text-xs uppercase">匠心叙事 THE ARTISANAL NARRATIVE</p>
+</div>
+</main>
+<!-- Bottom nav injected by nav.js -->
+
+<script>
+// Settings page interactivity
+document.addEventListener('DOMContentLoaded', function() {
+  // Notification click
+  document.querySelectorAll('[data-action]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var action = el.getAttribute('data-action');
+      if (window.AppUtils && window.AppUtils.showNotification) {
+        window.AppUtils.showNotification(action + ' 功能即将开放');
+      }
+    });
+  });
+
+  // Logout click
+  var logoutBtn = document.querySelector('.text-error');
+  if (logoutBtn) {
+    logoutBtn.closest('div').addEventListener('click', function() {
+      if (window.AppUtils && window.AppUtils.showNotification) {
+        window.AppUtils.showNotification('已退出登录');
+      }
+    });
+  }
+});
+</script>
+</body></html>

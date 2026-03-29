@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>匠心咖啡 — panama</title>
+<meta name="theme-color" content="#3E2723" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/style.css" rel="stylesheet"/>
+<script src="../assets/main.js" defer></script>
+<script src="../assets/nav.js" defer></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#3E2723",
+        "secondary": "#655d5a",
+        "surface": "#fafaf5",
+        "on-surface": "#1a1c19",
+        "on-primary": "#ffffff",
+        "outline": "#827472",
+        "tertiary-container": "#18331b",
+        "on-tertiary-fixed": "#05210a",
+        "surface-container-low": "#f4f4ef"
+      },
+      fontFamily: {
+        "noto-serif": ["Noto Serif SC", "serif"],
+        "headline": ["Noto Serif SC", "serif"],
+        "body": ["Noto Serif SC", "serif"],
+        "label": ["Plus Jakarta Sans", "sans-serif"]
+      }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+body { min-height: max(884px, 100dvh); font-family: 'Noto Serif SC', serif; }
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fafaf5]/80 backdrop-blur-md shadow-[0_12px_32px_rgba(62,39,35,0.04)] flex items-center justify-between px-6 h-20">
+<a href="../terroir/code.html" class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[#3E2723]">arrow_back</span>
+</a>
+<h1 class="font-headline font-bold text-[#3E2723] text-2xl tracking-tight">巴拿马</h1>
+<a href="../admin/login.html" class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[#3E2723]">search</span>
+</a>
+</nav>
+
+<main class="pt-32 pb-32">
+<!-- Hero Section -->
+<section class="relative h-[500px] overflow-hidden mb-12">
+<img alt="稀有的瑰夏咖啡果" class="w-full h-full object-cover" src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1200"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 text-white">
+<h2 class="font-noto-serif text-5xl font-black mb-4">巴拿马</h2>
+<p class="text-xl text-white/80">传奇瑰夏的故乡 - 以其稀有的顶级品种和非凡的花香而闻名</p>
+</div>
+</section>
+
+<!-- Content -->
+<div class="max-w-4xl mx-auto px-6 space-y-12">
+<!-- Overview -->
+<section>
+<h3 class="font-noto-serif text-3xl font-bold text-primary mb-6">概览</h3>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<p class="text-secondary text-lg leading-relaxed mb-4">
+巴拿马是一个小型但备受尊敬的咖啡生产国。虽然产量较小，但巴拿马因其稀有的瑰夏（Geisha）品种和超群的品质而享誉世界。
+</p>
+<p class="text-secondary text-lg leading-relaxed">
+巴拿马咖啡以其精致的花香、复杂的风味和高价值而著称。许多咖啡爱好者和专业人士将巴拿马咖啡视为精品咖啡的巅峰。
+</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-2xl">
+<h4 class="font-headline font-bold text-primary mb-4">快速事实</h4>
+<ul class="space-y-3 text-sm">
+<li class="flex justify-between"><span class="text-secondary">海拔范围</span><span class="font-bold">1,200-1,600 米</span></li>
+<li class="flex justify-between"><span class="text-secondary">主要品种</span><span class="font-bold">瑰夏、波旁</span></li>
+<li class="flex justify-between"><span class="text-secondary">收获季节</span><span class="font-bold">12月-2月</span></li>
+<li class="flex justify-between"><span class="text-secondary">处理方法</span><span class="font-bold">水洗法</span></li>
+<li class="flex justify-between"><span class="text-secondary">风味特征</span><span class="font-bold">花香、水蜜桃、茶感</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- Major Regions -->
+<section>
+<h3 class="font-noto-serif text-3xl font-bold text-primary mb-6">主要产区</h3>
+<div class="space-y-6">
+<!-- Boquete -->
+<div class="border-l-4 border-primary pl-6 py-4">
+<h4 class="font-headline text-2xl font-bold text-primary mb-2">博克特 (Boquete)</h4>
+<p class="text-secondary mb-3">巴拿马最著名的咖啡生产地，位于山区，海拔较高。</p>
+<p class="text-secondary">风味特征：茉莉花、蜜桃、柑橘、精致花香</p>
+</div>
+
+<!-- Volcán -->
+<div class="border-l-4 border-primary pl-6 py-4">
+<h4 class="font-headline text-2xl font-bold text-primary mb-2">火山 (Volcán)</h4>
+<p class="text-secondary mb-3">另一个高质量的咖啡产区，靠近博克特。</p>
+<p class="text-secondary">风味特征：花香、水果、醇厚、平衡</p>
+</div>
+
+<!-- Renacimiento -->
+<div class="border-l-4 border-primary pl-6 py-4">
+<h4 class="font-headline text-2xl font-bold text-primary mb-2">里那西米恩托 (Renacimiento)</h4>
+<p class="text-secondary mb-3">较新的产区，正在获得认可。</p>
+<p class="text-secondary">风味特征：果香、甜感、柔和酸度</p>
+</div>
+</div>
+</section>
+
+<!-- Geisha Variety -->
+<section>
+<h3 class="font-noto-serif text-3xl font-bold text-primary mb-6">传奇品种：瑰夏</h3>
+<div class="grid md:grid-cols-2 gap-8 mb-8">
+<div>
+<p class="text-secondary text-lg leading-relaxed mb-4">
+瑰夏（Geisha）原产于埃塞俄比亚，但在巴拿马博克特才真正被认可和重视。这个品种具有非常独特的遗传特性。
+</p>
+<p class="text-secondary text-lg leading-relaxed">
+瑰夏咖啡因其稀有性和超群的品质而价格昂贵，通常在拍卖会上达到创纪录的价格。每一杯瑰夏都是咖啡艺术的杰作。
+</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-2xl">
+<h4 class="font-headline font-bold text-primary mb-4">瑰夏特征</h4>
+<ul class="space-y-3 text-sm">
+<li class="flex justify-between"><span class="text-secondary">植株</span><span class="font-bold">高大、长叶</span></li>
+<li class="flex justify-between"><span class="text-secondary">风味</span><span class="font-bold">极为复杂精致</span></li>
+<li class="flex justify-between"><span class="text-secondary">香气</span><span class="font-bold">兰花、茉莉、蜜桃</span></li>
+<li class="flex justify-between"><span class="text-secondary">产量</span><span class="font-bold">较低（稀有）</span></li>
+<li class="flex justify-between"><span class="text-secondary">价格</span><span class="font-bold">通常最高</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- Flavor Profile -->
+<section class="bg-primary text-white p-8 rounded-2xl">
+<h3 class="font-headline text-2xl font-bold mb-6">风味特征</h3>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<p class="text-white/80 leading-relaxed mb-4">
+巴拿马咖啡，尤其是瑰夏，以其无与伦比的花香和精致风味而备受推崇。这些咖啡呈现出复杂的香气层次和优雅的口感。
+</p>
+<p class="text-white/80">
+品尝巴拿马咖啡是一种奢华的体验，每一口都能发现新的风味维度。这正是为什么瑰夏被许多人视为"咖啡中的香槟"。
+</p>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>兰花和茉莉花香</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>水蜜桃和热带水果</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>茶感和草本</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>精致细腻的口感</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>持久优雅的余韵</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="text-center py-12">
+<h3 class="font-headline text-3xl font-bold text-primary mb-4">准备好品尝巴拿马瑰夏了吗？</h3>
+<p class="text-secondary text-lg mb-8 max-w-2xl mx-auto">体验这个传奇品种的非凡魅力，感受咖啡的最高艺术。</p>
+<a href="../brew_guide/code.html" class="inline-block px-8 py-3 bg-primary text-white rounded-full hover:opacity-90 transition-opacity font-semibold">
+查看冲泡指南
+</a>
+</section>
+</div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-primary text-white/80 py-8 px-6 text-center text-sm">
+<p>© 2026 匠心咖啡 | <a href="../terroir/code.html" class="hover:text-white">返回产地页面</a></p>
+</footer>
+
+<!-- Bottom Nav -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-[#fafaf5]/90 backdrop-blur-xl shadow-[0_-8px_24px_rgba(62,39,35,0.06)] rounded-t-[2rem]">
+<a href="../_1/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">首页</span>
+</a>
+<a href="../terroir/code.html" class="flex flex-col items-center justify-center bg-[#ece0dc] text-[#3E2723] rounded-full px-5 py-2 scale-110 transition-all active:scale-90">
+<span class="material-symbols-outlined">public</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">产地</span>
+</a>
+<a href="../varieties/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">coffee</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">品种</span>
+</a>
+<a href="../brew_guide/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">local_cafe</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">冲煮</span>
+</a>
+<a href="../settings/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">设置</span>
+</a>
+</nav>
+</body>
+</html>

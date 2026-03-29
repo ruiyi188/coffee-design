@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>匠心咖啡 — brazil</title>
+<meta name="theme-color" content="#3E2723" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/style.css" rel="stylesheet"/>
+<script src="../assets/main.js" defer></script>
+<script src="../assets/nav.js" defer></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#3E2723",
+        "secondary": "#655d5a",
+        "surface": "#fafaf5",
+        "on-surface": "#1a1c19",
+        "on-primary": "#ffffff",
+        "outline": "#827472",
+        "tertiary-container": "#18331b",
+        "on-tertiary-fixed": "#05210a",
+        "surface-container-low": "#f4f4ef"
+      },
+      fontFamily: {
+        "noto-serif": ["Noto Serif SC", "serif"],
+        "headline": ["Noto Serif SC", "serif"],
+        "body": ["Noto Serif SC", "serif"],
+        "label": ["Plus Jakarta Sans", "sans-serif"]
+      }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+body { min-height: max(884px, 100dvh); font-family: 'Noto Serif SC', serif; }
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fafaf5]/80 backdrop-blur-md shadow-[0_12px_32px_rgba(62,39,35,0.04)] flex items-center justify-between px-6 h-20">
+<a href="../terroir/code.html" class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[#3E2723]">arrow_back</span>
+</a>
+<h1 class="font-headline font-bold text-[#3E2723] text-2xl tracking-tight">巴西</h1>
+<a href="../admin/login.html" class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[#3E2723]">search</span>
+</a>
+</nav>
+
+<main class="pt-32 pb-32">
+<!-- Hero Section -->
+<section class="relative h-[500px] overflow-hidden mb-12">
+<img alt="巴西大规模咖啡采收" class="w-full h-full object-cover" src="https://images.pexels.com/photos/327090/pexels-photo-327090.jpeg?auto=compress&cs=tinysrgb&w=1200"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 text-white">
+<h2 class="font-noto-serif text-5xl font-black mb-4">巴西</h2>
+<p class="text-xl text-white/80">世界最大咖啡生产国 - 以其平衡、圆滑和可靠的品质而享誉全球</p>
+</div>
+</section>
+
+<!-- Content -->
+<div class="max-w-4xl mx-auto px-6 space-y-12">
+<!-- Overview -->
+<section>
+<h3 class="font-noto-serif text-3xl font-bold text-primary mb-6">概览</h3>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<p class="text-secondary text-lg leading-relaxed mb-4">
+巴西是世界咖啡产量最大的国家，占全球产量的约三分之一。其广阔的地域和多样的气候为咖啡种植提供了理想的条件。
+</p>
+<p class="text-secondary text-lg leading-relaxed">
+巴西咖啡以其平衡的风味、低酸度、甜感和可靠的品质而闻名。这些特征使其成为配方咖啡和日常消费的常见选择。
+</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-2xl">
+<h4 class="font-headline font-bold text-primary mb-4">快速事实</h4>
+<ul class="space-y-3 text-sm">
+<li class="flex justify-between"><span class="text-secondary">海拔范围</span><span class="font-bold">700-1,200 米</span></li>
+<li class="flex justify-between"><span class="text-secondary">主要品种</span><span class="font-bold">波旁、三叶</span></li>
+<li class="flex justify-between"><span class="text-secondary">收获季节</span><span class="font-bold">5月-9月</span></li>
+<li class="flex justify-between"><span class="text-secondary">处理方法</span><span class="font-bold">半水洗、日晒</span></li>
+<li class="flex justify-between"><span class="text-secondary">风味特征</span><span class="font-bold">坚果、巧克力、温和</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- Major Regions -->
+<section>
+<h3 class="font-noto-serif text-3xl font-bold text-primary mb-6">主要产区</h3>
+<div class="space-y-6">
+<!-- Minas Gerais -->
+<div class="border-l-4 border-primary pl-6 py-4">
+<h4 class="font-headline text-2xl font-bold text-primary mb-2">米纳斯吉拉斯州 (Minas Gerais)</h4>
+<p class="text-secondary mb-3">巴西最重要的咖啡产区，也是世界第二大单一产区。</p>
+<p class="text-secondary">风味特征：巧克力、坚果、甜感、柔和的酸度</p>
+</div>
+
+<!-- São Paulo -->
+<div class="border-l-4 border-primary pl-6 py-4">
+<h4 class="font-headline text-2xl font-bold text-primary mb-2">圣保罗州 (São Paulo)</h4>
+<p class="text-secondary mb-3">虽然现在产量有所减少，但仍然生产优质咖啡。</p>
+<p class="text-secondary">风味特征：红糖、坚果、醇厚、平衡</p>
+</div>
+
+<!-- Espírito Santo -->
+<div class="border-l-4 border-primary pl-6 py-4">
+<h4 class="font-headline text-2xl font-bold text-primary mb-2">圣灵州 (Espírito Santo)</h4>
+<p class="text-secondary mb-3">越来越受欢迎的产区，产出良好品质的咖啡。</p>
+<p class="text-secondary">风味特征：水果、蜂蜜、温和甜感</p>
+</div>
+</div>
+</section>
+
+<!-- Processing Methods -->
+<section>
+<h3 class="font-noto-serif text-3xl font-bold text-primary mb-6">处理工艺</h3>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="bg-surface-container-low p-6 rounded-xl">
+<h4 class="font-headline font-bold text-primary mb-3">日晒法 (Natural Process)</h4>
+<p class="text-secondary text-sm">巴西最常用的处理方式。咖啡果实在阳光下自然干燥，产出更多甜感和果香。</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl">
+<h4 class="font-headline font-bold text-primary mb-3">半水洗法 (Pulped Natural)</h4>
+<p class="text-secondary text-sm">一种折中的处理方式，结合了水洗和日晒的优点，产出独特的风味特征。</p>
+</div>
+</div>
+</section>
+
+<!-- Flavor Profile -->
+<section class="bg-primary text-white p-8 rounded-2xl">
+<h3 class="font-headline text-2xl font-bold mb-6">风味特征</h3>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<p class="text-white/80 leading-relaxed mb-4">
+巴西咖啡因其平衡和可靠性而备受推崇。这些咖啡通常具有较低的酸度、丰富的甜感和顺滑的口感。
+</p>
+<p class="text-white/80">
+巴西咖啡是制作浓缩咖啡和混合咖啡的理想选择，它们能为配方咖啡提供坚实的基础。
+</p>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>坚果（花生、杏仁）</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>巧克力和焦糖</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>低酸性</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>甜感和蜂蜜</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>顺滑的口感</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="text-center py-12">
+<h3 class="font-headline text-3xl font-bold text-primary mb-4">准备好品尝巴西咖啡了吗？</h3>
+<p class="text-secondary text-lg mb-8 max-w-2xl mx-auto">选择你喜欢的冲泡方式，体验这个南美国家赋予咖啡的温暖与平衡。</p>
+<a href="../brew_guide/code.html" class="inline-block px-8 py-3 bg-primary text-white rounded-full hover:opacity-90 transition-opacity font-semibold">
+查看冲泡指南
+</a>
+</section>
+</div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-primary text-white/80 py-8 px-6 text-center text-sm">
+<p>© 2026 匠心咖啡 | <a href="../terroir/code.html" class="hover:text-white">返回产地页面</a></p>
+</footer>
+
+<!-- Bottom Nav -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-[#fafaf5]/90 backdrop-blur-xl shadow-[0_-8px_24px_rgba(62,39,35,0.06)] rounded-t-[2rem]">
+<a href="../_1/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">首页</span>
+</a>
+<a href="../terroir/code.html" class="flex flex-col items-center justify-center bg-[#ece0dc] text-[#3E2723] rounded-full px-5 py-2 scale-110 transition-all active:scale-90">
+<span class="material-symbols-outlined">public</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">产地</span>
+</a>
+<a href="../varieties/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">coffee</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">品种</span>
+</a>
+<a href="../brew_guide/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">local_cafe</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">冲煮</span>
+</a>
+<a href="../settings/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">设置</span>
+</a>
+</nav>
+</body>
+</html>

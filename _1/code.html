@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>匠心咖啡 — 时间之种</title>
+<meta name="description" content="匠心咖啡，探索精品咖啡世界。从产地到杯中，感受每一粒咖啡豆的故事。" />
+<meta name="theme-color" content="#3E2723" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../assets/style.css" rel="stylesheet"/>
+<script src="../assets/main.js" defer></script>
+<script src="../assets/nav.js" defer></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "surface": "#fafaf5",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#031e08",
+              "surface-container-lowest": "#ffffff",
+              "outline": "#827472",
+              "surface-tint": "#745853",
+              "secondary": "#655d5a",
+              "surface-container": "#eeeee9",
+              "on-tertiary-fixed": "#05210a",
+              "tertiary-container": "#18331b",
+              "on-error": "#ffffff",
+              "surface-container-low": "#f4f4ef",
+              "tertiary-fixed": "#caebc7",
+              "on-primary-fixed-variant": "#5b403c",
+              "surface-container-highest": "#e3e3de",
+              "primary": "#271310",
+              "background": "#fafaf5",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#201a18",
+              "surface-bright": "#fafaf5",
+              "on-primary-container": "#ae8d87",
+              "inverse-primary": "#e3beb8",
+              "surface-container-high": "#e8e8e3",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#2b1613",
+              "secondary-fixed": "#ece0dc",
+              "outline-variant": "#d3c3c0",
+              "primary-fixed-dim": "#e3beb8",
+              "on-secondary-container": "#6b6360",
+              "on-background": "#1a1c19",
+              "inverse-surface": "#2f312e",
+              "on-surface-variant": "#504442",
+              "on-secondary": "#ffffff",
+              "on-surface": "#1a1c19",
+              "on-tertiary-container": "#7e9d7c",
+              "tertiary-fixed-dim": "#afcfac",
+              "surface-dim": "#dadad5",
+              "primary-fixed": "#ffdad4",
+              "secondary-fixed-dim": "#cfc4c0",
+              "on-tertiary-fixed-variant": "#314d33",
+              "surface-variant": "#e3e3de",
+              "on-secondary-fixed-variant": "#4c4542",
+              "inverse-on-surface": "#f1f1ec",
+              "secondary-container": "#ece0dc",
+              "primary-container": "#3e2723"
+            },
+            fontFamily: {
+              "noto-serif": ["Noto Serif SC", "serif"],
+              "plus-jakarta-sans": ["Plus Jakarta Sans", "sans-serif"],
+              "headline": ["Noto Serif SC", "serif"],
+              "body": ["Noto Serif SC", "serif"],
+              "label": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+      body {
+        min-height: max(884px, 100dvh);
+        font-family: 'Noto Serif SC', serif;
+      }
+    </style>
+</head>
+<body class="bg-surface font-noto-serif text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 bg-[#fafaf5]/80 backdrop-blur-xl z-50">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</button>
+<h1 class="font-noto-serif font-bold text-lg tracking-tight text-primary">匠心咖啡</h1>
+<a href="../admin/login.html" class="w-10 h-10 rounded-full overflow-hidden bg-secondary-container hover:opacity-80 transition-opacity active:scale-95 duration-200 flex items-center justify-center">
+<img alt="管理系统" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsFf3toSvBTzpCqGEqgRjD4RP42o7331EFlJsdqPcQQfIPtJdTg56v048S5xpeZazZV-xHtL3b_RGtYFXFfk69Xg-iaX43Hp9xA2kYGBYAU2ZP5abKZMI-kUT61SGUAhyKjCvp6Tp3vDaZR5ZbZtvB20EXczbvyriBWqyXJbc5l0-K1m1w6lM0bWxetXkNRGQvGIc5HDxQn00Zp5HIe4Px6cLqKpXd2CW7gVLrLuWeVCdmjZPdfua06tpmQMGDVffyUDI_MnApsGKi"/>
+</a>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-4xl mx-auto">
+<!-- Hero Section with Title -->
+<section class="mb-16 relative">
+<h1 class="font-noto-serif text-5xl md:text-6xl font-black text-primary leading-tight tracking-tight mb-4">时间之种</h1>
+<p class="font-noto-serif text-lg text-secondary font-medium max-w-2xl mb-8">对时间的尊重，寻找更好的理由打开咖啡。</p>
+<!-- Featured Image -->
+<div class="relative overflow-hidden rounded-3xl mb-12">
+<div class="aspect-video bg-surface-container-low">
+<img alt="咖啡豆特写" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsFf3toSvBTzpCqGEqgRjD4RP42o7331EFlJsdqPcQQfIPtJdTg56v048S5xpeZazZV-xHtL3b_RGtYFXFfk69Xg-iaX43Hp9xA2kYGBYAU2ZP5abKZMI-kUT61SGUAhyKjCvp6Tp3vDaZR5ZbZtvB20EXczbvyriBWqyXJbc5l0-K1m1w6lM0bWxetXkNRGQvGIc5HDxQn00Zp5HIe4Px6cLqKpXd2CW7gVLrLuWeVCdmjZPdfua06tpmQMGDVffyUDI_MnApsGKi"/>
+</div>
+</div>
+</section>
+
+<!-- Content Blocks - Editorial Layout -->
+<section class="space-y-12 mb-16">
+<!-- Block 1 -->
+<article class="grid md:grid-cols-2 gap-8 items-start">
+<div class="md:col-span-1">
+<img alt="咖啡时间" class="w-full rounded-3xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhgfzWgVVcTOA_9VwrozcP91C9FV3p6J-MitLar399a2cA58Q4JSLBsSF0tvswouPRjQ_LYeBmpU4dXy5S2r9oZevoWrgGeihwAv6BLVvtt6pawOQp_MXtiSIIEzlYMMmk4cBxQYNNA4vJOjMlYV4uPpXvPaYjki4EZ-GB0vtzHKgJhk4_0EHCn0vDzZbd6TDymZUj9p9zcE6ceU0b-s6p917IKjJHStzlp1zQVzyRDqfNY5bMh9q9t_Yc0o4vByEEj18NZoByc0hj"/>
+</div>
+<div class="md:col-span-1 flex flex-col justify-center">
+<h2 class="font-noto-serif text-3xl md:text-4xl font-bold text-primary tracking-tight mb-4">今日的品味</h2>
+<p class="font-noto-serif text-lg text-secondary leading-relaxed mb-4">
+选择一杯咖啡，不仅是选择一种饮料，更是在创造一个时刻。在日益快速的生活中，我们需要找到理由停下来，感受每一个香气分子，品味每一丝苦涩与温暖。
+</p>
+<p class="text-secondary text-sm opacity-80">
+咖啡不仅是一杯饮品，它是对自己的投资，是对生活仪式的坚守。
+</p>
+</div>
+</article>
+
+<!-- Block 2 -->
+<article class="flex flex-col items-center text-center py-12 px-8 bg-surface-container-low rounded-3xl">
+<h2 class="font-noto-serif text-3xl md:text-4xl font-bold text-primary tracking-tight mb-6">伟大的迁移</h2>
+<p class="text-on-surface text-lg leading-relaxed max-w-2xl mb-8">
+从种植园到烘焙工坊，每一粒咖啡豆都经历了一场伟大的迁移。在这个过程中，它从绿色的生命体转化为深邃的褐色精华，承载着产地的风味和烘焙师的技艺。
+</p>
+<span class="text-6xl mb-4" style="font-size: 3.5rem;">☕</span>
+</article>
+
+<!-- Block 3 -->
+<article class="grid md:grid-cols-2 gap-8 items-start">
+<div class="md:col-span-1 md:order-2">
+<img alt="咖啡与时间" class="w-full rounded-3xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxs-_u_w2tSm3MtQ5C_oQBlvnQSS9rG5eMbe-Jw62gLUjilBsBtKAOGvPpascViqQVk85_GBWrwGlYAB20wg9zuDxdY7wbskGsV9eb5qlgf-8u6GjD8S1L2XqY5xSuOAip4Qh3mNPY5wOFc6sQ4xn0auUqL7AUcdNMNHfdABw6i7F18Buq-1hMk0Cxx-VOZDnNNFhQxHXgRKT11gAExGnBnbY3q5PTl8iNmsS77rMJ1m3S1brxf9zAiSn-2ovF4h-r"/>
+</div>
+<div class="md:col-span-1 md:order-1 flex flex-col justify-center">
+<h3 class="font-noto-serif text-2xl md:text-3xl font-bold text-primary tracking-tight mb-4">风味的记忆</h3>
+<p class="text-secondary text-lg leading-relaxed mb-4">
+每一次品尝，都是一次时间旅行。咖啡记录了季节的变化，捕捉了产地的灵魂。在杯中，你会发现：高地的清爽，低地的厚重，雨季的甜蜜，干季的复杂。
+</p>
+<p class="text-secondary text-sm opacity-80">
+风味不仅存在于舌尖，更存在于记忆中。
+</p>
+</div>
+</article>
+
+<!-- Block 4 -->
+<article class="bg-tertiary-container rounded-3xl p-10 text-on-tertiary-container">
+<h3 class="font-noto-serif text-2xl md:text-3xl font-bold text-primary tracking-tight mb-6">生产与保护</h3>
+<p class="text-lg leading-relaxed mb-6">
+可持续的咖啡种植不仅关系到我们的口感，更关系到地球的未来。支持那些尊重环境、尊重农民劳动的生产者，是我们每个消费者的责任。
+</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined mt-1">eco</span>
+<span>绿色认证：真正的可持续承诺</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined mt-1">group</span>
+<span>农民直接贸易：公平的价格</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined mt-1">public</span>
+<span>社区发展：长期的投资</span>
+</li>
+</ul>
+</article>
+
+<!-- Block 5 -->
+<article class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary via-primary-container to-secondary p-0">
+<div class="relative z-10 p-10 text-surface">
+<h3 class="font-noto-serif text-3xl md:text-4xl font-bold text-surface tracking-tight mb-4">咖啡的仪式</h3>
+<p class="text-lg leading-relaxed opacity-90 mb-6">
+研磨、冲泡、品尝——每一步都是一场对话。与其说我们在喝咖啡，不如说我们在重新定义生活的节奏。
+</p>
+</div>
+<div class="absolute top-0 right-0 w-64 h-64 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[300px]" data-icon="coffee_bean" style="font-variation-settings: 'FILL' 1;">coffee</span>
+</div>
+</article>
+
+<!-- Block 6 -->
+<article class="grid md:grid-cols-2 gap-8">
+<div class="bg-surface-container-low rounded-3xl p-8 flex flex-col justify-between">
+<div>
+<h4 class="font-noto-serif text-2xl font-bold mb-4 text-primary">花香与果香</h4>
+<p class="text-secondary text-sm leading-relaxed">
+高地咖啡常带给我们意想不到的花香和水果风味。这些微妙的香气来自独特的海拔、土壤和气候条件。</p>
+</div>
+<div class="mt-6 text-4xl opacity-20">🌸</div>
+</div>
+<div class="bg-surface-container-low rounded-3xl p-8 flex flex-col justify-between">
+<div>
+<h4 class="font-noto-serif text-2xl font-bold mb-4 text-primary">经典与创新</h4>
+<p class="text-secondary text-sm leading-relaxed">
+经典的风味配方经历了数代的完善，而创新的烘焙技艺不断拓展咖啡的可能性。</p>
+</div>
+<div class="mt-6 text-4xl opacity-20">⚡</div>
+</div>
+</article>
+
+<!-- Block 7 -->
+<article class="bg-secondary-container rounded-3xl p-10">
+<div class="flex items-center justify-between mb-6">
+<span class="material-symbols-outlined text-3xl text-primary">favorite</span>
+<span class="text-sm font-bold text-secondary">精心推荐</span>
+</div>
+<h3 class="font-noto-serif text-2xl md:text-3xl font-bold text-primary tracking-tight mb-3">寻找你的完美杯份</h3>
+<p class="text-on-secondary-container text-sm leading-relaxed">
+每个人都有属于自己的咖啡故事。无论你偏爱醇厚的意式浓缩，还是清爽的手冲单品，我们都在这里帮助你发现那一杯。
+</p>
+<button class="mt-6 px-8 py-3 bg-primary text-surface rounded-full font-bold hover:opacity-90 transition-all active:scale-95">
+开始探索
+</button>
+</article>
+</section>
+
+<!-- CTA Section -->
+<section class="bg-primary text-surface rounded-3xl p-10 flex flex-col items-center text-center mb-8">
+<span class="material-symbols-outlined text-5xl mb-6" data-icon="lightbulb">lightbulb</span>
+<h3 class="font-noto-serif text-3xl md:text-4xl font-bold mb-4 tracking-tight">分享你的咖啡故事</h3>
+<p class="max-w-md mb-8 opacity-90">
+你对咖啡的理解和热爱是独一无二的。让我们一起建立一个咖啡爱好者的社区。
+</p>
+<button class="px-10 py-3 bg-gradient-to-r from-primary-fixed to-secondary-fixed text-primary rounded-full font-bold hover:opacity-90 transition-all active:scale-95">
+加入对话
+</button>
+</section>
+</main>
+
+<!-- Bottom nav injected by nav.js -->
+</body></html>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600">
+  <defs>
+    <linearGradient id="colombiaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A0522D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CD853F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#colombiaGrad)"/>
+  <ellipse cx="600" cy="300" rx="200" ry="150" fill="rgba(255,255,255,0.1)"/>
+  <text x="600" y="280" font-size="56" font-family="Noto Serif SC,serif" font-weight="bold" fill="white" text-anchor="middle">哥伦比亚</text>
+  <text x="600" y="340" font-size="24" font-family="Noto Serif SC,serif" fill="white" text-anchor="middle" opacity="0.9">Colombia Coffee</text>
+</svg>

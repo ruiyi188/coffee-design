@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>账户管理 | 咖啡后台管理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#271310",
+        "secondary": "#655d5a",
+        "surface": "#fafaf5",
+        "surface-container": "#eeeee9",
+        "surface-container-low": "#f4f4ef",
+        "surface-container-high": "#e8e8e3",
+        "on-surface": "#1a1c19",
+        "on-primary": "#ffffff",
+        "outline": "#827472",
+        "error": "#ba1a1a",
+        "success": "#34a853"
+      }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400; }
+body { font-family: 'Noto Serif SC', serif; }
+.sidebar-active { @apply bg-surface-container text-primary; }
+</style>
+</head>
+<body class="bg-surface text-on-surface">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-primary text-white fixed h-screen overflow-y-auto">
+<div class="p-6 border-b border-white/10">
+<h1 class="font-bold text-xl flex items-center gap-2">
+<span class="material-symbols-outlined">coffee</span>
+后台管理
+</h1>
+</div>
+<nav class="p-4 space-y-2">
+<a href="./dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+仪表盘
+</a>
+<a href="./content.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">article</span>
+内容管理
+</a>
+<a href="./accounts.html" class="sidebar-active flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-primary">
+<span class="material-symbols-outlined">person</span>
+账户管理
+</a>
+<a href="./analytics.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">bar_chart</span>
+数据分析
+</a>
+<a href="./settings.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+系统设置
+</a>
+</nav>
+<div class="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors cursor-pointer" onclick="logout()">
+<span class="material-symbols-outlined">logout</span>
+<span>退出登录</span>
+</div>
+</div>
+</aside>
+
+<!-- Main Content -->
+<main class="flex-1 ml-64 overflow-auto">
+<!-- Top Bar -->
+<header class="bg-white border-b border-outline/10 sticky top-0 z-40">
+<div class="flex justify-between items-center px-8 py-4">
+<div>
+<h2 class="text-2xl font-bold text-primary">账户管理</h2>
+<p class="text-sm text-secondary mt-1">管理系统用户、权限和访问控制</p>
+</div>
+<button class="px-4 py-2 bg-primary text-on-primary rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined">person_add</span>
+添加用户
+</button>
+</header>
+
+<!-- Content -->
+<div class="p-8">
+<div class="grid grid-cols-3 gap-6 mb-8">
+<div class="bg-surface-container-low rounded-lg p-6 border border-outline/10">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-sm text-secondary mb-1">总用户数</p>
+<p class="text-3xl font-bold text-primary">18</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-2xl">group</span>
+</div>
+<p class="text-xs text-secondary mt-2">↑ 2 新用户本月</p>
+</div>
+
+<div class="bg-surface-container-low rounded-lg p-6 border border-outline/10">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-sm text-secondary mb-1">活跃用户</p>
+<p class="text-3xl font-bold text-primary">14</p>
+</div>
+<span class="material-symbols-outlined text-success text-2xl">verified_user</span>
+</div>
+<p class="text-xs text-secondary mt-2">本周活动频繁</p>
+</div>
+
+<div class="bg-surface-container-low rounded-lg p-6 border border-outline/10">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-sm text-secondary mb-1">管理员</p>
+<p class="text-3xl font-bold text-primary">3</p>
+</div>
+<span class="material-symbols-outlined text-primary text-2xl">admin_panel_settings</span>
+</div>
+<p class="text-xs text-secondary mt-2">超级管理员: 1</p>
+</div>
+</div>
+
+<!-- Users Table -->
+<div class="bg-white rounded-lg border border-outline/10 overflow-hidden">
+<table class="w-full">
+<thead class="bg-surface-container-low border-b border-outline/10">
+<tr>
+<th class="px-6 py-4 text-left text-sm font-semibold text-primary">用户</th>
+<th class="px-6 py-4 text-left text-sm font-semibold text-primary">邮箱</th>
+<th class="px-6 py-4 text-left text-sm font-semibold text-primary">角色</th>
+<th class="px-6 py-4 text-left text-sm font-semibold text-primary">状态</th>
+<th class="px-6 py-4 text-left text-sm font-semibold text-primary">加入时间</th>
+<th class="px-6 py-4 text-left text-sm font-semibold text-primary">操作</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline/10 hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-primary">admin</span>
+</div>
+<span class="font-medium text-primary">张三</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-secondary">zhangsan@coffee.com</td>
+<td class="px-6 py-4"><span class="text-xs font-medium bg-primary/10 text-primary px-2 py-1 rounded">超级管理员</span></td>
+<td class="px-6 py-4"><span class="inline-block w-2 h-2 rounded-full bg-success mr-2"></span><span class="text-sm text-secondary">活跃</span></td>
+<td class="px-6 py-4 text-sm text-secondary">2025-08-15</td>
+<td class="px-6 py-4">
+<button class="text-primary hover:opacity-70 text-sm font-medium">编辑</button>
+</td>
+</tr>
+
+<tr class="border-b border-outline/10 hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center">
+<span class="text-sm font-bold text-secondary">李</span>
+</div>
+<span class="font-medium text-primary">李四</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-secondary">lisi@coffee.com</td>
+<td class="px-6 py-4"><span class="text-xs font-medium bg-secondary/10 text-secondary px-2 py-1 rounded">编辑</span></td>
+<td class="px-6 py-4"><span class="inline-block w-2 h-2 rounded-full bg-success mr-2"></span><span class="text-sm text-secondary">活跃</span></td>
+<td class="px-6 py-4 text-sm text-secondary">2025-09-22</td>
+<td class="px-6 py-4">
+<button class="text-primary hover:opacity-70 text-sm font-medium">编辑</button>
+</td>
+</tr>
+
+<tr class="border-b border-outline/10 hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-green-200 flex items-center justify-center">
+<span class="text-sm font-bold text-green-700">王</span>
+</div>
+<span class="font-medium text-primary">王五</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-secondary">wangwu@coffee.com</td>
+<td class="px-6 py-4"><span class="text-xs font-medium bg-green-100 text-green-700 px-2 py-1 rounded">作者</span></td>
+<td class="px-6 py-4"><span class="inline-block w-2 h-2 rounded-full bg-gray-400 mr-2"></span><span class="text-sm text-secondary">离线</span></td>
+<td class="px-6 py-4 text-sm text-secondary">2025-10-05</td>
+<td class="px-6 py-4">
+<button class="text-primary hover:opacity-70 text-sm font-medium">编辑</button>
+</td>
+</tr>
+
+<tr class="border-b border-outline/10 hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-orange-200 flex items-center justify-center">
+<span class="text-sm font-bold text-orange-700">赵</span>
+</div>
+<span class="font-medium text-primary">赵六</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-secondary">zhaoliu@coffee.com</td>
+<td class="px-6 py-4"><span class="text-xs font-medium bg-orange-100 text-orange-700 px-2 py-1 rounded">观者</span></td>
+<td class="px-6 py-4"><span class="inline-block w-2 h-2 rounded-full bg-success mr-2"></span><span class="text-sm text-secondary">活跃</span></td>
+<td class="px-6 py-4 text-sm text-secondary">2025-11-12</td>
+<td class="px-6 py-4">
+<button class="text-primary hover:opacity-70 text-sm font-medium">编辑</button>
+</td>
+</tr>
+
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-purple-200 flex items-center justify-center">
+<span class="text-sm font-bold text-purple-700">孙</span>
+</div>
+<span class="font-medium text-primary">孙七</span>
+</div>
+</td>
+<td class="px-6 py-4 text-sm text-secondary">sunqi@coffee.com</td>
+<td class="px-6 py-4"><span class="text-xs font-medium bg-orange-100 text-orange-700 px-2 py-1 rounded">观者</span></td>
+<td class="px-6 py-4"><span class="inline-block w-2 h-2 rounded-full bg-gray-400 mr-2"></span><span class="text-sm text-secondary">离线</span></td>
+<td class="px-6 py-4 text-sm text-secondary">2026-01-08</td>
+<td class="px-6 py-4">
+<button class="text-primary hover:opacity-70 text-sm font-medium">编辑</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</div>
+
+<script>
+function logout() {
+  if (confirm('确定要退出登录吗？')) {
+    window.location.href = './login.html';
+  }
+}
+</script>
+</body>
+</html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>账户管理 | 咖啡后台管理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#271310",
+        "secondary": "#655d5a",
+        "surface": "#fafaf5",
+        "surface-container": "#eeeee9",
+        "surface-container-low": "#f4f4ef",
+        "surface-container-high": "#e8e8e3",
+        "on-surface": "#1a1c19",
+        "on-primary": "#ffffff",
+        "outline": "#827472",
+        "error": "#ba1a1a",
+        "success": "#34a853",
+        "warning": "#f59e0b"
+      }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400; }
+body { font-family: 'Noto Serif SC', serif; }
+.sidebar-active { @apply bg-surface-container text-primary; }
+</style>
+</head>
+<body class="bg-surface text-on-surface">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-primary text-white fixed h-screen overflow-y-auto">
+<div class="p-6 border-b border-white/10">
+<h1 class="font-bold text-xl flex items-center gap-2">
+<span class="material-symbols-outlined">coffee</span>
+后台管理
+</h1>
+</div>
+<nav class="p-4 space-y-2">
+<a href="./dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">dashboard</span>
+仪表盘
+</a>
+<a href="./content.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">article</span>
+内容管理
+</a>
+<a href="./accounts.html" class="sidebar-active flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-primary">
+<span class="material-symbols-outlined">person</span>
+账户管理
+</a>
+<a href="./analytics.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">bar_chart</span>
+数据分析
+</a>
+<a href="./settings.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">settings</span>
+系统设置
+</a>
+</nav>
+<div class="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
+<div class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 transition-colors cursor-pointer">
+<span class="material-symbols-outlined">logout</span>
+<span>退出登录</span>
+</div>
+</div>
+</aside>
+
+<!-- Main Content -->
+<main class="flex-1 ml-64 overflow-auto">
+<!-- Top Bar -->
+<header class="bg-white border-b border-outline/10 sticky top-0 z-40">
+<div class="flex justify-between items-center px-8 py-4">
+<h2 class="text-2xl font-bold text-primary">账户管理</h2>
+<button class="bg-primary text-white px-6 py-2 rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">add</span>
+添加账户
+</button>
+</header>
+
+<!-- Content -->
+<div class="p-8">
+<!-- Filters -->
+<div class="bg-white rounded-lg p-4 mb-6 border border-outline/10">
+<div class="flex gap-4 items-center">
+<input type="text" placeholder="搜索用户名或邮箱..." class="flex-1 px-4 py-2 border border-outline/20 rounded-lg bg-surface focus:outline-none focus:border-primary"/>
+<select class="px-4 py-2 border border-outline/20 rounded-lg bg-surface focus:outline-none focus:border-primary">
+<option>全部角色</option>
+<option>管理员</option>
+<option>编辑</option>
+<option>普通用户</option>
+</select>
+<select class="px-4 py-2 border border-outline/20 rounded-lg bg-surface focus:outline-none focus:border-primary">
+<option>全部状态</option>
+<option>活跃</option>
+<option>禁用</option>
+<option>未验证</option>
+</select>
+</div>
+</div>
+
+<!-- Accounts Table -->
+<div class="bg-white rounded-lg border border-outline/10 overflow-hidden">
+<table class="w-full">
+<thead class="bg-surface-container-low border-b border-outline/10">
+<tr>
+<th class="px-6 py-4 text-left text-sm font-semibold text-primary">用户</th>
+<th class="px-6 py-4 text-left text-sm font-semibold text-primary">邮箱</th>
+<th class="px-6 py-4 text-left text-sm font-semibold text-primary">角色</th>
+<th class="px-6 py-4 text-left text-sm font-semibold text-primary">状态</th>
+<th class="px-6 py-4 text-left text-sm font-semibold text-primary">加入时间</th>
+<th class="px-6 py-4 text-left text-sm font-semibold text-primary">最后登录</th>
+<th class="px-6 py-4 text-left text-sm font-semibold text-primary">操作</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline/10 hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+<span class="text-sm font-bold text-primary">张</span>
+</div>
+<div>
+<p class="font-medium text-primary">张三</p>
+<p class="text-xs text-secondary">管理员</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">zhangsan@coffee.com</span></td>
+<td class="px-6 py-4"><span class="px-3 py-1 bg-primary/20 text-primary text-xs rounded-full font-medium">管理员</span></td>
+<td class="px-6 py-4"><span class="px-3 py-1 bg-success/20 text-success text-xs rounded-full font-medium">活跃</span></td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">2025-01-15</span></td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">今天 10:30</span></td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<button class="p-1 hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-sm text-primary">edit</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-sm text-error">delete</span>
+</button>
+</div>
+</td>
+</tr>
+
+<tr class="border-b border-outline/10 hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center">
+<span class="text-sm font-bold text-secondary">李</span>
+</div>
+<div>
+<p class="font-medium text-primary">李四</p>
+<p class="text-xs text-secondary">编辑</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">lisi@coffee.com</span></td>
+<td class="px-6 py-4"><span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">编辑</span></td>
+<td class="px-6 py-4"><span class="px-3 py-1 bg-success/20 text-success text-xs rounded-full font-medium">活跃</span></td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">2025-02-20</span></td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">昨天 15:45</span></td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<button class="p-1 hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-sm text-primary">edit</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-sm text-error">delete</span>
+</button>
+</div>
+</td>
+</tr>
+
+<tr class="border-b border-outline/10 hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+<span class="text-sm font-bold text-purple-800">王</span>
+</div>
+<div>
+<p class="font-medium text-primary">王五</p>
+<p class="text-xs text-secondary">普通用户</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">wangwu@example.com</span></td>
+<td class="px-6 py-4"><span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs rounded-full font-medium">普通用户</span></td>
+<td class="px-6 py-4"><span class="px-3 py-1 bg-warning/20 text-warning text-xs rounded-full font-medium">未验证</span></td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">2026-03-10</span></td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">从不</span></td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<button class="p-1 hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-sm text-primary">edit</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-sm text-error">delete</span>
+</button>
+</div>
+</td>
+</tr>
+
+<tr class="border-b border-outline/10 hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+<span class="text-sm font-bold text-green-800">赵</span>
+</div>
+<div>
+<p class="font-medium text-primary">赵六</p>
+<p class="text-xs text-secondary">编辑</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">zhaoliu@coffee.com</span></td>
+<td class="px-6 py-4"><span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium">编辑</span></td>
+<td class="px-6 py-4"><span class="px-3 py-1 bg-error/20 text-error text-xs rounded-full font-medium">禁用</span></td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">2025-03-05</span></td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">2026-01-20</span></td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<button class="p-1 hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-sm text-primary">edit</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-sm text-error">delete</span>
+</button>
+</div>
+</td>
+</tr>
+
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center">
+<span class="text-sm font-bold text-orange-800">孙</span>
+</div>
+<div>
+<p class="font-medium text-primary">孙七</p>
+<p class="text-xs text-secondary">普通用户</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">sunqi@example.com</span></td>
+<td class="px-6 py-4"><span class="px-3 py-1 bg-gray-100 text-gray-800 text-xs rounded-full font-medium">普通用户</span></td>
+<td class="px-6 py-4"><span class="px-3 py-1 bg-success/20 text-success text-xs rounded-full font-medium">活跃</span></td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">2026-03-12</span></td>
+<td class="px-6 py-4"><span class="text-sm text-secondary">3 小时前</span></td>
+<td class="px-6 py-4">
+<div class="flex gap-2">
+<button class="p-1 hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-sm text-primary">edit</span>
+</button>
+<button class="p-1 hover:bg-surface-container rounded transition-colors">
+<span class="material-symbols-outlined text-sm text-error">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<!-- Pagination -->
+<div class="flex justify-between items-center mt-6">
+<p class="text-sm text-secondary">显示 1-5 条，共 18 条</p>
+<div class="flex gap-2">
+<button class="px-4 py-2 border border-outline/20 rounded-lg hover:bg-surface-container transition-colors text-sm">上一页</button>
+<button class="px-4 py-2 border border-outline/20 rounded-lg bg-primary text-white transition-colors text-sm">1</button>
+<button class="px-4 py-2 border border-outline/20 rounded-lg hover:bg-surface-container transition-colors text-sm">2</button>
+<button class="px-4 py-2 border border-outline/20 rounded-lg hover:bg-surface-container transition-colors text-sm">3</button>
+<button class="px-4 py-2 border border-outline/20 rounded-lg hover:bg-surface-container transition-colors text-sm">4</button>
+<button class="px-4 py-2 border border-outline/20 rounded-lg hover:bg-surface-container transition-colors text-sm">下一页</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body>
+</html>

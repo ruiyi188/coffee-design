@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>匠心咖啡 — 冲煮仪式</title>
+<meta name="description" content="选择您的器具，开启萃取过程。黄金比例V60手冲咖啡指南。" />
+<meta name="theme-color" content="#3E2723" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../assets/style.css" rel="stylesheet"/>
+<script src="../assets/main.js" defer></script>
+<script src="../assets/nav.js" defer></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "surface": "#fafaf5",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#031e08",
+              "surface-container-lowest": "#ffffff",
+              "outline": "#827472",
+              "surface-tint": "#745853",
+              "secondary": "#655d5a",
+              "surface-container": "#eeeee9",
+              "on-tertiary-fixed": "#05210a",
+              "tertiary-container": "#18331b",
+              "on-error": "#ffffff",
+              "surface-container-low": "#f4f4ef",
+              "tertiary-fixed": "#caebc7",
+              "on-primary-fixed-variant": "#5b403c",
+              "surface-container-highest": "#e3e3de",
+              "primary": "#271310",
+              "background": "#fafaf5",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#201a18",
+              "surface-bright": "#fafaf5",
+              "on-primary-container": "#ae8d87",
+              "inverse-primary": "#e3beb8",
+              "surface-container-high": "#e8e8e3",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#2b1613",
+              "secondary-fixed": "#ece0dc",
+              "outline-variant": "#d3c3c0",
+              "primary-fixed-dim": "#e3beb8",
+              "on-secondary-container": "#6b6360",
+              "on-background": "#1a1c19",
+              "inverse-surface": "#2f312e",
+              "on-surface-variant": "#504442",
+              "on-secondary": "#ffffff",
+              "on-surface": "#1a1c19",
+              "on-tertiary-container": "#7e9d7c",
+              "tertiary-fixed-dim": "#afcfac",
+              "surface-dim": "#dadad5",
+              "primary-fixed": "#ffdad4",
+              "secondary-fixed-dim": "#cfc4c0",
+              "on-tertiary-fixed-variant": "#314d33",
+              "surface-variant": "#e3e3de",
+              "on-secondary-fixed-variant": "#4c4542",
+              "inverse-on-surface": "#f1f1ec",
+              "secondary-container": "#ece0dc",
+              "primary-container": "#3e2723"
+            },
+            fontFamily: {
+              "noto-serif": ["Noto Serif SC", "serif"],
+              "plus-jakarta-sans": ["Plus Jakarta Sans", "sans-serif"],
+              "headline": ["Noto Serif SC", "serif"],
+              "body": ["Noto Serif SC", "serif"],
+              "label": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+      body {
+        min-height: max(884px, 100dvh);
+        font-family: 'Noto Serif SC', serif;
+      }
+    </style>
+</head>
+<body class="bg-surface font-noto-serif text-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 bg-[#fafaf5]/80 backdrop-blur-xl z-50">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary" data-icon="menu">menu</span>
+</button>
+<h1 class="font-noto-serif font-bold text-lg tracking-tight text-primary">匠心咖啡</h1>
+<a href="../admin/login.html" class="w-10 h-10 rounded-full overflow-hidden bg-secondary-container hover:opacity-80 transition-opacity active:scale-95 duration-200 flex items-center justify-center">
+<img alt="管理系统" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsFf3toSvBTzpCqGEqgRjD4RP42o7331EFlJsdqPcQQfIPtJdTg56v048S5xpeZazZV-xHtL3b_RGtYFXFfk69Xg-iaX43Hp9xA2kYGBYAU2ZP5abKZMI-kUT61SGUAhyKjCvp6Tp3vDaZR5ZbZtvB20EXczbvyriBWqyXJbc5l0-K1m1w6lM0bWxetXkNRGQvGIc5HDxQn00Zp5HIe4Px6cLqKpXd2CW7gVLrLuWeVCdmjZPdfua06tpmQMGDVffyUDI_MnApsGKi"/>
+</a>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-4xl mx-auto">
+<!-- Hero & Method Selection -->
+<section class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div>
+<h1 class="font-noto-serif text-5xl md:text-6xl font-black text-primary leading-tight tracking-tight mb-4">冲煮仪式</h1>
+<p class="font-noto-serif text-lg text-secondary font-medium max-w-md">选择您的器具，开启萃取过程。每一克粉末都至关重要。</p>
+</div>
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
+<button class="flex-shrink-0 px-6 py-2.5 rounded-full bg-primary-container text-surface-container-lowest font-semibold text-sm transition-all active:scale-95">V60</button>
+<button class="flex-shrink-0 px-6 py-2.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold text-sm hover:bg-surface-container-highest transition-all active:scale-95">Chemex</button>
+<button class="flex-shrink-0 px-6 py-2.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold text-sm hover:bg-surface-container-highest transition-all active:scale-95">法压壶</button>
+<button class="flex-shrink-0 px-6 py-2.5 rounded-full bg-secondary-container text-on-secondary-container font-semibold text-sm hover:bg-surface-container-highest transition-all active:scale-95">爱乐压</button>
+</div>
+</div>
+</section>
+<!-- Recipe Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+<div class="md:col-span-2 bg-surface-container-low rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="font-noto-serif text-2xl md:text-3xl font-bold mb-6 text-primary tracking-tight">黄金比例</h3>
+<div class="flex items-baseline gap-4 mb-8">
+<span class="text-6xl font-black text-primary">1:15</span>
+<span class="text-xl font-bold text-secondary">比例</span>
+</div>
+</div>
+<div class="flex gap-12 relative z-10">
+<div>
+<p class="text-xs uppercase tracking-widest text-secondary font-bold mb-1">粉量 Coffee</p>
+<p class="text-2xl font-bold">20克</p>
+</div>
+<div>
+<p class="text-xs uppercase tracking-widest text-secondary font-bold mb-1">水量 Water</p>
+<p class="text-2xl font-bold">300毫升</p>
+</div>
+<div>
+<p class="text-xs uppercase tracking-widest text-secondary font-bold mb-1">水温 Temp</p>
+<p class="text-2xl font-bold">92°C</p>
+</div>
+</div>
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]" data-icon="coffee_bean" style="font-variation-settings: 'FILL' 1;">coffee</span>
+</div>
+</div>
+<div class="bg-tertiary-container rounded-3xl p-8 text-on-tertiary-container">
+<h3 class="font-noto-serif text-2xl md:text-3xl font-bold mb-4 text-tertiary-fixed tracking-tight">所需工具</h3>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed" data-icon="restaurant">restaurant</span>
+<span class="text-sm font-medium">锥形滤杯</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed" data-icon="humidity_mid">humidity_mid</span>
+<span class="text-sm font-medium">滤纸</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed" data-icon="water_drop">water_drop</span>
+<span class="text-sm font-medium">细口手冲壶</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary-fixed" data-icon="timer">timer</span>
+<span class="text-sm font-medium">电子秤</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Horizontal Step Progress -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-noto-serif text-2xl md:text-3xl font-bold text-primary tracking-tight">冲煮步骤</h3>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory">
+<!-- Step 1 -->
+<div class="flex-shrink-0 w-80 snap-start group">
+<div class="aspect-square bg-surface-container-highest rounded-3xl mb-4 overflow-hidden relative">
+<img alt="准备阶段" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTAJfvVERtMuEjmImLzuOi8Dg1WxZ3tDIdQMLARxwFGl35AVwXxkxBrNT05O79-6OF2DwolxVUOv6rSee5h9_cTseSW4aYdXZ_iz67zGyuoLr4rj7ME2BT-G_arZWpvPbbRRkRg0KvKTxpXF9gIxDe3aIE3idqEIIGyEVVBW_I5_E0iOE8rJAi1DGiyOmpPsxkmM7_Q-PxbDUZNWbg1q_Y5O-cONmilFoK9MrJdH_k_7U7rsL7QoacXbQ-H5xWw2El-yEhiHRxWtZ-"/>
+<div class="absolute top-4 left-4 bg-primary text-surface px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase">步骤 01</div>
+</div>
+<h4 class="font-noto-serif text-xl md:text-2xl font-bold tracking-tight mb-2">准备阶段</h4>
+<p class="text-secondary text-sm leading-relaxed">用热水湿润滤纸以去除纸味，并预热滤杯和分享壶。</p>
+</div>
+<!-- Step 2 -->
+<div class="flex-shrink-0 w-80 snap-start group">
+<div class="aspect-square bg-surface-container-highest rounded-3xl mb-4 overflow-hidden relative">
+<img alt="闷蒸阶段" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhgfzWgVVcTOA_9VwrozcP91C9FV3p6J-MitLar399a2cA58Q4JSLBsSF0tvswouPRjQ_LYeBmpU4dXy5S2r9oZevoWrgGeihwAv6BLVvtt6pawOQp_MXtiSIIEzlYMMmk4cBxQYNNA4vJOjMlYV4uPpXvPaYjki4EZ-GB0vtzHKgJhk4_0EHCn0vDzZbd6TDymZUj9p9zcE6ceU0b-s6p917IKjJHStzlp1zQVzyRDqfNY5bMh9q9t_Yc0o4vByEEj18NZoByc0hj"/>
+<div class="absolute top-4 left-4 bg-primary text-surface px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase">步骤 02</div>
+</div>
+<h4 class="font-noto-serif text-xl md:text-2xl font-bold tracking-tight mb-2">闷蒸</h4>
+<p class="text-secondary text-sm leading-relaxed">注入40克水并等待30秒。这能让二氧化碳逸出，从而实现更好的萃取。</p>
+</div>
+<!-- Step 3 -->
+<div class="flex-shrink-0 w-80 snap-start group">
+<div class="aspect-square bg-surface-container-highest rounded-3xl mb-4 overflow-hidden relative">
+<img alt="主注水阶段" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxs-_u_w2tSm3MtQ5C_oQBlvnQSS9rQ6ZnPMqXh1E-LTpROv9Q3z3k3tc_DwafGGGY1yL3QjO6IsSzHBVQsBgUiFwCIRK4YsAOvnpWj5DWBDqMC74J4M7CktWvcli7u4OAzkBTsa2HSxUKM6QYZe3pWc-ucLpnz3ab1Uu3R67uzeR8kB8CRalxkL0DSfBmyExjjD2z8rYjqEu6LrxECVQSkneXDngCFF8tu49JEQHFVafPWoCFuohbYtNG9G00JZopKF_PnWmXwV3z"/>
+<div class="absolute top-4 left-4 bg-primary text-surface px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase">步骤 03</div>
+</div>
+<h4 class="font-noto-serif text-xl md:text-2xl font-bold tracking-tight mb-2">主注水</h4>
+<p class="text-secondary text-sm leading-relaxed">以圆周动作平稳注水至300毫升。保持细稳的水流以确保均匀浸润。</p>
+</div>
+<!-- Step 4 -->
+<div class="flex-shrink-0 w-80 snap-start group">
+<div class="aspect-square bg-surface-container-highest rounded-3xl mb-4 overflow-hidden relative">
+<img alt="收尾阶段" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADLki8slE_S8NRGp9FDmCfkgliv8SOxIqfydhKfPHQC0eMbe-Jw62gLUjilBsBtKAOGvPpascViqQVk85_GBWrwGlYAB20wg9zuDxdY7wbskGsV9eb5qlgf-8u6GjD8S1L2XqY5xSuOAip4Qh3mNPY5wOFc6sQ4xn0auUqL7AUcdNMNHfdABw6i7F18Buq-1hMk0Cxx-VOZDnNNFhQxHXgRKT11gAExGnBnbY3q5PTl8iNmsS77rMJ1m3S1brxf9zAiSn-2ovF4h-r"/>
+<div class="absolute top-4 left-4 bg-primary text-surface px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase">步骤 04</div>
+</div>
+<h4 class="font-noto-serif text-xl md:text-2xl font-bold tracking-tight mb-2">流尽收尾</h4>
+<p class="text-secondary text-sm leading-relaxed">让水完全滤完。总冲煮时间应在2:30至3:00分钟左右。</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-primary text-surface rounded-3xl p-10 flex flex-col items-center text-center">
+<span class="material-symbols-outlined text-4xl mb-4 text-primary-fixed" data-icon="timer">timer</span>
+<h3 class="font-noto-serif text-3xl md:text-4xl font-bold mb-4 tracking-tight">启动冲煮计时器</h3>
+<p class="font-noto-serif text-lg text-secondary-fixed-dim max-w-sm mb-4">配合我们精准的倒计时同步您的仪式，实现完美萃取。</p>
+<div class="brew-timer-display text-surface mb-6" id="brew-timer-display">00:00</div>
+<div class="flex gap-4">
+<button id="brew-timer-btn" class="brew-timer-btn px-10 py-4 bg-gradient-to-r from-primary-fixed to-secondary-fixed text-primary rounded-full font-bold text-lg border border-outline-variant/20 shadow-lg" onclick="toggleBrewTimer()">
+开始仪式
+</button>
+<button id="brew-timer-reset" class="px-6 py-4 border border-surface/30 text-surface rounded-full font-bold text-sm hover:bg-surface/10 transition-all hidden" onclick="resetBrewTimer()">
+重置
+</button>
+</div>
+<p class="text-sm text-surface/50 mt-4" id="brew-timer-target">目标时间：2:30 - 3:00</p>
+</section>
+</main>
+<!-- Bottom nav injected by nav.js -->
+<script>
+let brewTimerInterval = null;
+let brewTimerSeconds = 0;
+let brewTimerRunning = false;
+
+function toggleBrewTimer() {
+  const btn = document.getElementById('brew-timer-btn');
+  const resetBtn = document.getElementById('brew-timer-reset');
+  
+  if (brewTimerRunning) {
+    clearInterval(brewTimerInterval);
+    brewTimerRunning = false;
+    btn.textContent = '继续';
+    btn.classList.remove('brew-timer-btn--running');
+    resetBtn.classList.remove('hidden');
+  } else {
+    brewTimerRunning = true;
+    btn.textContent = '暂停';
+    btn.classList.add('brew-timer-btn--running');
+    resetBtn.classList.remove('hidden');
+    
+    brewTimerInterval = setInterval(function() {
+      brewTimerSeconds++;
+      updateTimerDisplay();
+      
+      if (brewTimerSeconds === 150) { // 2:30
+        showNotification('☕ 进入理想冲煮区间 (2:30)');
+      }
+      if (brewTimerSeconds === 180) { // 3:00
+        clearInterval(brewTimerInterval);
+        brewTimerRunning = false;
+        btn.textContent = '完成!';
+        btn.classList.remove('brew-timer-btn--running');
+        showNotification('☕ 冲煮完成！享受您的咖啡吧。');
+      }
+    }, 1000);
+  }
+}
+
+function resetBrewTimer() {
+  clearInterval(brewTimerInterval);
+  brewTimerRunning = false;
+  brewTimerSeconds = 0;
+  updateTimerDisplay();
+  const btn = document.getElementById('brew-timer-btn');
+  const resetBtn = document.getElementById('brew-timer-reset');
+  btn.textContent = '开始仪式';
+  btn.classList.remove('brew-timer-btn--running');
+  resetBtn.classList.add('hidden');
+}
+
+function updateTimerDisplay() {
+  const display = document.getElementById('brew-timer-display');
+  const mins = Math.floor(brewTimerSeconds / 60);
+  const secs = brewTimerSeconds % 60;
+  display.textContent = String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+}
+
+function showNotification(msg) {
+  if (window.AppUtils && window.AppUtils.showNotification) {
+    window.AppUtils.showNotification(msg);
+  }
+}
+</script>
+</body></html>

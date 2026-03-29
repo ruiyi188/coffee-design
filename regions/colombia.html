@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>匠心咖啡 — colombia</title>
+<meta name="theme-color" content="#3E2723" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/style.css" rel="stylesheet"/>
+<script src="../assets/main.js" defer></script>
+<script src="../assets/nav.js" defer></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#3E2723",
+        "secondary": "#655d5a",
+        "surface": "#fafaf5",
+        "on-surface": "#1a1c19",
+        "on-primary": "#ffffff",
+        "outline": "#827472",
+        "tertiary-container": "#18331b",
+        "on-tertiary-fixed": "#05210a",
+        "surface-container-low": "#f4f4ef"
+      },
+      fontFamily: {
+        "noto-serif": ["Noto Serif SC", "serif"],
+        "headline": ["Noto Serif SC", "serif"],
+        "body": ["Noto Serif SC", "serif"],
+        "label": ["Plus Jakarta Sans", "sans-serif"]
+      }
+    }
+  }
+}
+</script>
+<style>
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+body { min-height: max(884px, 100dvh); font-family: 'Noto Serif SC', serif; }
+</style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fafaf5]/80 backdrop-blur-md shadow-[0_12px_32px_rgba(62,39,35,0.04)] flex items-center justify-between px-6 h-20">
+<a href="../terroir/code.html" class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[#3E2723]">arrow_back</span>
+</a>
+<h1 class="font-headline font-bold text-[#3E2723] text-2xl tracking-tight">哥伦比亚</h1>
+<a href="../admin/login.html" class="flex items-center gap-4 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined text-[#3E2723]">search</span>
+</a>
+</nav>
+
+<main class="pt-32 pb-32">
+<!-- Hero Section -->
+<section class="relative h-[500px] overflow-hidden mb-12">
+<img alt="哥伦比亚咖啡" class="w-full h-full object-cover" src="https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1200"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 text-white">
+<h2 class="font-noto-serif text-5xl font-black mb-4">哥伦比亚</h2>
+<p class="text-xl text-white/80">世界第二大咖啡生产国 - 以其平衡的风味和稳定的品质享誉全球</p>
+</div>
+</section>
+
+<!-- Content -->
+<div class="max-w-4xl mx-auto px-6 space-y-12">
+<!-- Overview -->
+<section>
+<h3 class="font-noto-serif text-3xl font-bold text-primary mb-6">概览</h3>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<p class="text-secondary text-lg leading-relaxed mb-4">
+哥伦比亚是一个咖啡大国，拥有最多的小农咖啡种植者。这个国家的多样地形和气候为不同的咖啡产区提供了独特的生长条件。
+</p>
+<p class="text-secondary text-lg leading-relaxed">
+哥伦比亚咖啡以其平衡的风味、中等的酸度、丰富的口感和可靠的品质而闻名。每个地区都能产出具有独特特征的优质咖啡。
+</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-2xl">
+<h4 class="font-headline font-bold text-primary mb-4">快速事实</h4>
+<ul class="space-y-3 text-sm">
+<li class="flex justify-between"><span class="text-secondary">海拔范围</span><span class="font-bold">1,200-2,000 米</span></li>
+<li class="flex justify-between"><span class="text-secondary">主要品种</span><span class="font-bold">阿拉比卡</span></li>
+<li class="flex justify-between"><span class="text-secondary">收获季节</span><span class="font-bold">全年采收</span></li>
+<li class="flex justify-between"><span class="text-secondary">处理方法</span><span class="font-bold">水洗法</span></li>
+<li class="flex justify-between"><span class="text-secondary">风味特征</span><span class="font-bold">坚果、巧克力、平衡</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- Major Regions -->
+<section>
+<h3 class="font-noto-serif text-3xl font-bold text-primary mb-6">主要产区</h3>
+<div class="space-y-6">
+<!-- Huila -->
+<div class="border-l-4 border-primary pl-6 py-4">
+<h4 class="font-headline text-2xl font-bold text-primary mb-2">瓦伊拉 (Huila)</h4>
+<p class="text-secondary mb-3">哥伦比亚最大的单一咖啡产区，位于西南部高地。</p>
+<p class="text-secondary">风味特征：果香、焦糖、坚果、甜感、中等酸度</p>
+</div>
+
+<!-- Nariño -->
+<div class="border-l-4 border-primary pl-6 py-4">
+<h4 class="font-headline text-2xl font-bold text-primary mb-2">纳里尼奥 (Nariño)</h4>
+<p class="text-secondary mb-3">海拔最高的产区之一，靠近厄瓜多尔边界。</p>
+<p class="text-secondary">风味特征：明亮的酸度、花香、清爽、柑橘、精致</p>
+</div>
+
+<!-- Cauca -->
+<div class="border-l-4 border-primary pl-6 py-4">
+<h4 class="font-headline text-2xl font-bold text-primary mb-2">考卡 (Cauca)</h4>
+<p class="text-secondary mb-3">西部最重要的咖啡生产区，具有丰富的生物多样性。</p>
+<p class="text-secondary">风味特征：巧克力、坚果、甜蜜、柔和的余韵</p>
+</div>
+</div>
+</section>
+
+<!-- Processing Methods -->
+<section>
+<h3 class="font-noto-serif text-3xl font-bold text-primary mb-6">处理工艺</h3>
+<div class="grid md:grid-cols-2 gap-6">
+<div class="bg-surface-container-low p-6 rounded-xl">
+<h4 class="font-headline font-bold text-primary mb-3">传统水洗法 (Washed Process)</h4>
+<p class="text-secondary text-sm">哥伦比亚的标准处理方式。咖啡果去除后进行发酵，然后清洗和干燥。产出一致、平衡的风味。</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl">
+<h4 class="font-headline font-bold text-primary mb-3">蜜处理法 (Honey Process)</h4>
+<p class="text-secondary text-sm">部分生产者使用这种方法，保留一些天然果肉。增添更多甜感和复杂的风味。</p>
+</div>
+</div>
+</section>
+
+<!-- Flavor Profile -->
+<section class="bg-primary text-white p-8 rounded-2xl">
+<h3 class="font-headline text-2xl font-bold mb-6">风味特征</h3>
+<div class="grid md:grid-cols-2 gap-8">
+<div>
+<p class="text-white/80 leading-relaxed mb-4">
+哥伦比亚咖啡因其高度平衡的风味而受欢迎。它们通常具有中等酸度，丰富的口感，以及令人愉悦的甜感。
+</p>
+<p class="text-white/80">
+这种平衡性使哥伦比亚咖啡非常适合各种冲泡方式，无论是浓郁的浓缩咖啡还是清爽的过滤咖啡。
+</p>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>坚果和可可</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>焦糖和巧克力甜感</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>平衡的酸度</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>中等到饱满的口感</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-white/40"></span>
+<span>水果（苹果、梨）</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="text-center py-12">
+<h3 class="font-headline text-3xl font-bold text-primary mb-4">准备好品尝哥伦比亚咖啡了吗？</h3>
+<p class="text-secondary text-lg mb-8 max-w-2xl mx-auto">选择你喜欢的冲泡方式，体验这个国家赋予咖啡的平衡与优雅。</p>
+<a href="../brew_guide/code.html" class="inline-block px-8 py-3 bg-primary text-white rounded-full hover:opacity-90 transition-opacity font-semibold">
+查看冲泡指南
+</a>
+</section>
+</div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-primary text-white/80 py-8 px-6 text-center text-sm">
+<p>© 2026 匠心咖啡 | <a href="../terroir/code.html" class="hover:text-white">返回产地页面</a></p>
+</footer>
+
+<!-- Bottom Nav -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-[#fafaf5]/90 backdrop-blur-xl shadow-[0_-8px_24px_rgba(62,39,35,0.06)] rounded-t-[2rem]">
+<a href="../_1/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">首页</span>
+</a>
+<a href="../terroir/code.html" class="flex flex-col items-center justify-center bg-[#ece0dc] text-[#3E2723] rounded-full px-5 py-2 scale-110 transition-all active:scale-90">
+<span class="material-symbols-outlined">public</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">产地</span>
+</a>
+<a href="../varieties/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">coffee</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">品种</span>
+</a>
+<a href="../brew_guide/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">local_cafe</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">冲煮</span>
+</a>
+<a href="../settings/code.html" class="flex flex-col items-center justify-center text-[#655d5a] opacity-60 hover:text-[#3E2723] transition-colors active:scale-90 duration-300">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label text-[11px] uppercase tracking-widest font-semibold mt-1">设置</span>
+</a>
+</nav>
+</body>
+</html>

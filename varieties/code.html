@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>匠心咖啡 — 咖啡品种</title>
+<meta name="description" content="探索咖啡的遗传谱系，从埃塞俄比亚的精致高地到越南坚韧的平原。" />
+<meta name="theme-color" content="#3E2723" />
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="../assets/style.css" rel="stylesheet"/>
+<script src="../assets/main.js" defer></script>
+<script src="../assets/nav.js" defer></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "surface": "#fafaf5",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#031e08",
+              "surface-container-lowest": "#ffffff",
+              "outline": "#827472",
+              "surface-tint": "#745853",
+              "secondary": "#655d5a",
+              "surface-container": "#eeeee9",
+              "on-tertiary-fixed": "#05210a",
+              "tertiary-container": "#18331b",
+              "on-error": "#ffffff",
+              "surface-container-low": "#f4f4ef",
+              "tertiary-fixed": "#caebc7",
+              "on-primary-fixed-variant": "#5b403c",
+              "surface-container-highest": "#e3e3de",
+              "primary": "#3E2723",
+              "background": "#fafaf5",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#201a18",
+              "surface-bright": "#fafaf5",
+              "on-primary-container": "#ae8d87",
+              "inverse-primary": "#e3beb8",
+              "surface-container-high": "#e8e8e3",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#2b1613",
+              "secondary-fixed": "#ece0dc",
+              "outline-variant": "#d3c3c0",
+              "primary-fixed-dim": "#e3beb8",
+              "on-secondary-container": "#6b6360",
+              "on-background": "#1a1c19",
+              "inverse-surface": "#2f312e",
+              "on-surface-variant": "#504442",
+              "on-secondary": "#ffffff",
+              "on-surface": "#1a1c19",
+              "on-tertiary-container": "#7e9d7c",
+              "tertiary-fixed-dim": "#afcfac",
+              "surface-dim": "#dadad5",
+              "primary-fixed": "#ffdad4",
+              "secondary-fixed-dim": "#cfc4c0",
+              "on-tertiary-fixed-variant": "#314d33",
+              "surface-variant": "#e3e3de",
+              "on-secondary-fixed-variant": "#4c4542",
+              "inverse-on-surface": "#f1f1ec",
+              "secondary-container": "#ece0dc",
+              "primary-container": "#3e2723"
+            },
+            fontFamily: {
+              "noto-serif": ["Noto Serif SC", "serif"],
+              "plus-jakarta-sans": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "8px", 
+              "lg": "12px", 
+              "xl": "16px", 
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow { box-shadow: 0 12px 32px rgba(62, 39, 35, 0.08); }
+        body {
+          min-height: max(884px, 100dvh);
+          font-family: 'Noto Serif SC', serif;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 bg-[#fafaf5]/80 dark:bg-[#3E2723]/80 backdrop-blur-xl z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#3E2723] dark:text-[#ece0dc]">menu</span>
+<span class="font-noto-serif font-bold text-[#3E2723] dark:text-[#ece0dc] text-lg tracking-tight">匠心咖啡</span>
+</div>
+<a href="../admin/login.html" class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden hover:opacity-80 transition-opacity active:scale-95 duration-200 flex items-center justify-center">
+<img alt="管理系统" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx6sqc4f5VSZoDXVudEFsWFNu_KDbABOOXds_g6srIzukBOH5NGibNIJB5Q2fQ5SpXVl6WkrOXPzubrbXNIIs5QlKOTE1toMt2q2b7fO-dxZNm-1oJO6A2rzGwsJONY4jXOD_rwzQSenU6N2HrOIdhNA5JV9C4nrqzTQL3Tfvab8bv55cvuSKgCuh-m5BTI0I5qo3Bx6-OWp5DcoC6R_-wgk0R3OVVpfHccKZdLX6RKwVmnXOO8_zqx1ynOJyjzGnl4wQIybJzBCjn"/>
+</a>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-5xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-16">
+<h1 class="font-noto-serif text-5xl md:text-6xl font-black text-primary tracking-tight mb-4">咖啡品种</h1>
+<p class="font-noto-serif text-lg text-on-surface-variant max-w-2xl leading-relaxed">一场关于定义我们晨间仪式的遗传谱系的深度探索。从埃塞俄比亚的精致高地，到越南坚韧的平原。</p>
+</section>
+<!-- Comparison Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+<!-- Arabica Card -->
+<div class="bg-surface-container-low p-8 rounded-xl relative overflow-hidden flex flex-col justify-between group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container opacity-20 blur-3xl -mr-16 -mt-16 group-hover:opacity-40 transition-opacity"></div>
+<div>
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="font-noto-serif text-3xl font-bold text-primary">阿拉比卡</h2>
+<p class="text-secondary font-medium tracking-widest uppercase text-xs mt-1">Coffea Arabica</p>
+</div>
+<span class="font-noto-serif text-lg text-primary/50">Arabica</span>
+</div>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-sm font-semibold">生长于高海拔地区 (600-2000m)</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-sm font-semibold">复杂的酸质与甜度</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-sm font-semibold">占全球产量的 60-70%</span>
+</li>
+</ul>
+</div>
+<!-- Mini Radar Representation -->
+<div class="flex items-center gap-6 mt-4">
+<div class="w-24 h-24 flex items-center justify-center relative bg-surface p-2 rounded-full editorial-shadow">
+<div class="absolute inset-0 m-2 border-2 border-primary/5 rounded-full"></div>
+<svg class="w-full h-full transform -rotate-45" viewbox="0 0 100 100">
+<polygon fill="none" opacity="0.2" points="50,10 90,50 50,90 10,50" stroke="#3E2723" stroke-width="0.5"></polygon>
+<polygon fill="#3E2723" fill-opacity="0.15" points="50,20 85,50 50,70 25,50" stroke="#3E2723" stroke-width="1.5"></polygon>
+</svg>
+</div>
+<div>
+<span class="text-xs font-bold block mb-1">风味轮廓</span>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-secondary-container text-[10px] rounded-full text-secondary uppercase tracking-tighter">高酸度</span>
+<span class="px-2 py-0.5 bg-secondary-container text-[10px] rounded-full text-secondary uppercase tracking-tighter">花香</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Robusta Card -->
+<div class="bg-surface-container-low p-8 rounded-xl relative overflow-hidden flex flex-col justify-between group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container opacity-10 blur-3xl -mr-16 -mt-16 group-hover:opacity-20 transition-opacity"></div>
+<div>
+<div class="flex justify-between items-start mb-6">
+<div>
+<h2 class="font-noto-serif text-3xl font-bold text-primary">罗布斯塔</h2>
+<p class="text-secondary font-medium tracking-widest uppercase text-xs mt-1">Coffea Canephora</p>
+</div>
+<span class="font-noto-serif text-lg text-primary/50">Robusta</span>
+</div>
+<ul class="space-y-4 mb-8">
+<li class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="text-sm font-semibold">生长于低海拔地区 (0-800m)</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="text-sm font-semibold">高咖啡因，低酸度，坚果味</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="text-sm font-semibold">卓越的抗病虫害能力</span>
+</li>
+</ul>
+</div>
+<!-- Mini Radar Representation -->
+<div class="flex items-center gap-6 mt-4">
+<div class="w-24 h-24 flex items-center justify-center relative bg-surface p-2 rounded-full editorial-shadow">
+<div class="absolute inset-0 m-2 border-2 border-primary/5 rounded-full"></div>
+<svg class="w-full h-full transform -rotate-45" viewbox="0 0 100 100">
+<polygon fill="none" opacity="0.2" points="50,10 90,50 50,90 10,50" stroke="#3E2723" stroke-width="0.5"></polygon>
+<polygon fill="#3e2723" fill-opacity="0.15" points="50,40 70,50 50,85 30,50" stroke="#3e2723" stroke-width="1.5"></polygon>
+</svg>
+</div>
+<div>
+<span class="text-xs font-bold block mb-1 text-primary/60">风味轮廓</span>
+<div class="flex gap-2">
+<span class="px-2 py-0.5 bg-surface-container-highest text-[10px] rounded-full text-secondary uppercase tracking-tighter">醇厚度高</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-[10px] rounded-full text-secondary uppercase tracking-tighter">土质感</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Lineage Exploration -->
+<section class="mb-20">
+<div class="flex justify-between items-end mb-10">
+<h3 class="font-noto-serif text-3xl md:text-4xl font-bold text-primary tracking-tight">子品种传承</h3>
+<div class="flex gap-2">
+<div class="w-10 h-1 rounded-full bg-primary"></div>
+<div class="w-10 h-1 rounded-full bg-outline-variant/30"></div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Bourbon -->
+<div class="bg-surface-container-low hover:bg-white transition-colors p-6 rounded-lg group cursor-pointer">
+<div class="h-40 mb-6 overflow-hidden rounded-lg">
+<img alt="波旁咖啡樱桃" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTCc8Dec18EZqYsWOw-80VbOUqm5eJShOVasT4UNnml_uYDArg9CZVYFct6nEBffOtALZxx1FdFUeE99tzh0BsPz7YqHJmL_s7mXAifFhADdjijoyVpvFe2r6dzGF6__fBojHSU8Vx148UkFuvck2AWyyDTK193GmFcFGNJ_JteqaLoe_aB5zLWGal38djE0R_Y_zSpH-NHAkwnmU5aqUFHumDMsx_jg07gQl_7OcjyhL1BotRgZ2aZ5Y36yJvW11Zz9Z0x8bObfAH"/>
+</div>
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-noto-serif font-bold text-xl">波旁</h4>
+<span class="text-xs text-secondary font-medium uppercase">Bourbon</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-4">以其独特的甜味和复杂性而闻名的父代谱系。易受叶锈病影响，但因其杯测质量而备受推崇。</p>
+<div class="pt-4 border-t border-outline-variant/15 flex items-center justify-between">
+<span class="text-[10px] font-bold tracking-widest text-primary/40 uppercase">品鉴：黄油，焦糖</span>
+<span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Typica -->
+<div class="bg-surface-container-low hover:bg-white transition-colors p-6 rounded-lg group cursor-pointer">
+<div class="h-40 mb-6 overflow-hidden rounded-lg">
+<img alt="铁比卡咖啡豆" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJPP1RyH6jkQAmbOSiE5CHu0phkkeHd-BLRgHY-uOVZel3X3AfXtIBFjXd84c5cFD939pVLSCRHJiQ389StuFCLfbDMICbY1DmjLch9I4sSCuSprMfT2eUGM-3D8FT5g2neR5xuAK9i921V8lmw9Ax4N7882QAhwJHL-OK_uFk5aykqKvBTWxffSYwxla930_G82yLrza6Z9k0uFEsOqBgZcpHFZChgJ9Wdo5MGTm_hc9iiPTKImT_T5JkR-4YRIGfXpvLedkhlZwm"/>
+</div>
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-noto-serif font-bold text-xl">铁比卡</h4>
+<span class="text-xs text-secondary font-medium uppercase">Typica</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-4">由荷兰人传播的基础品种。以洁净的酸质和极高的遗传纯度为特征。</p>
+<div class="pt-4 border-t border-outline-variant/15 flex items-center justify-between">
+<span class="text-[10px] font-bold tracking-widest text-primary/40 uppercase">品鉴：柠檬，花香</span>
+<span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Geisha -->
+<div class="bg-surface-container-low hover:bg-white transition-colors p-6 rounded-lg group cursor-pointer">
+<div class="h-40 mb-6 overflow-hidden rounded-lg">
+<img alt="瑰夏咖啡冲煮" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm2YOW86o6LRKlQKtd5d0vqsekhbH1CMEE4X1EM6wiiWZJIyDVzgt6unzLaZ3fUcOS19jj1dVwA0L-BeZY5OKOLqCxFrgvhSukrVme4qPaTei1JGRt7AwAcjaW9ax0MEsD89PzBtujhGZ5lvRDDcEs7RwRHX8TcYyX2gj9P0hsVENRKHirCLu5Hu-sU39QeqcS6WNC0doaIBDsx-oPvw2-UcClRuk1geD5P1c-vO3BIAWG46TMyEiQy71Z5EI6fuNZjuEzCQ_nzCri"/>
+</div>
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-noto-serif font-bold text-xl">瑰夏</h4>
+<span class="text-xs text-secondary font-medium uppercase">Geisha</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-4">以其像茶一样的质感和强烈的茉莉花香而富有传奇色彩。是精品咖啡比赛的宠儿。</p>
+<div class="pt-4 border-t border-outline-variant/15 flex items-center justify-between">
+<span class="text-[10px] font-bold tracking-widest text-primary/40 uppercase">品鉴：茉莉，桃子</span>
+<span class="material-symbols-outlined text-primary text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Anatomy: Flavor Wheel Segment -->
+<section class="mb-10 p-10 bg-primary rounded-xl text-surface flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary-container rounded-full opacity-30"></div>
+<div class="md:w-1/2 z-10">
+<span class="font-bold text-tertiary-fixed text-xs tracking-[0.3em] uppercase mb-4 block">风味分析 ∙ Flavor Analysis</span>
+<h3 class="font-noto-serif text-4xl md:text-5xl font-bold mb-6 leading-tight tracking-tight">解码感官体验</h3>
+<p class="text-surface-variant/80 mb-8 leading-relaxed">每个品种在四个关键指标上都有独特的指纹。了解这些有助于实现完美的冲煮搭配。</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white/5 p-4 rounded-lg">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary-fixed text-sm">brightness_7</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">酸度</span>
+</div>
+<div class="h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed w-4/5"></div>
+</div>
+</div>
+<div class="bg-white/5 p-4 rounded-lg">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary-fixed text-sm">bubble_chart</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">醇厚度</span>
+</div>
+<div class="h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed w-2/5"></div>
+</div>
+</div>
+<div class="bg-white/5 p-4 rounded-lg">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary-fixed text-sm">cake</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">甜度</span>
+</div>
+<div class="h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed w-3/4"></div>
+</div>
+</div>
+<div class="bg-white/5 p-4 rounded-lg">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary-fixed text-sm">psychology</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">香气</span>
+</div>
+<div class="h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed w-full"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 flex justify-center z-10">
+<div class="w-64 h-64 border-4 border-tertiary-fixed/20 rounded-full flex items-center justify-center relative">
+<div class="w-48 h-48 border-2 border-tertiary-fixed/10 rounded-full flex items-center justify-center">
+<div class="w-16 h-16 bg-tertiary-fixed rounded-full editorial-shadow flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-weight="fill">coffee</span>
+</div>
+</div>
+<!-- Label Placements (Visual decoration) -->
+<span class="absolute top-2 text-[10px] font-bold tracking-widest">果香</span>
+<span class="absolute right-4 top-1/2 text-[10px] font-bold tracking-widest">花香</span>
+<span class="absolute bottom-2 text-[10px] font-bold tracking-widest">坚果</span>
+<span class="absolute left-4 top-1/2 text-[10px] font-bold tracking-widest">辛香</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom nav injected by nav.js -->
+</body></html>
