@@ -1,5 +1,47 @@
 # ☕ Coffee Design - 匠心咖啡
 
+## 📦 Release v1.1.0 — 2026-03-29
+
+### 交付范围
+
+- **路由总表**：新增 `assets/routes.js` 作为全站 URL 单一数据源（21 条路由）
+- **导航重构**：`nav.js` 改为读取路由总表，消除所有硬编码路径
+- **链接治理**：186 条内部链接验证通过，0 死链
+- **404 页面**：新增 `404.html` 兜底页，含品牌设计 + 返回首页入口
+- **质量脚本**：`npm run lint:links`（链接检查）、`npm run verify`（构建+检查）
+- **页面地图**：新增 `docs/pages-map.md`，完整页面清单与导航入口统计
+- **页面模板**：新增 `docs/page-template.html`，标准化新增页面流程
+
+### 路由管理与发版流程
+
+#### 路由总表
+
+所有页面路径由 `assets/routes.js` 统一管理，禁止在 HTML 中散落硬编码路径。
+
+```javascript
+// 示例：获取路由路径
+CoffeeRoutes.getPath('home')     // → '../_1/code.html'
+CoffeeRoutes.getPath('brew')     // → '../brew_guide/code.html'
+CoffeeRoutes.isActive('terroir') // → true/false
+```
+
+#### 新增页面流程
+
+1. 在 `assets/routes.js` → `ROUTES` 对象中注册新路由
+2. 复制 `docs/page-template.html` 到目标目录
+3. 若需导航入口，在 `NAV_ITEMS` 或 `DRAWER_ITEMS` 中追加
+4. 运行 `npm run lint:links` 验证无死链
+5. 提交代码
+
+#### 质量检查
+
+```bash
+npm run lint:links   # 扫描全站 HTML 内部链接是否可达
+npm run verify       # 构建 + 链接检查（CI 可用）
+```
+
+---
+
 ## 📦 Release v1.0.0 — 2026-03-29
 
 ### 交付范围
